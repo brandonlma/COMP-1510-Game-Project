@@ -3,18 +3,18 @@ import time
 from operator import truediv
 
 
-# def make_board(rows, columns):
-#     row = 0
-#     board = {}
+def make_board(rows, columns):
+    row = 0
+    board = {}
 
-#     while row < rows:
-#         column = 0
-#         while column < columns:
-#             coordinate = (row, column)
-#             board.update({coordinate: "Empty Room"})
-#             column += 1
-#         row += 1
-#     return board
+    while row < rows:
+        column = 0
+        while column < columns:
+            coordinate = (row, column)
+            board.update({coordinate: "Empty Room"})
+            column += 1
+        row += 1
+    return board
 
 
 # def create_character():
@@ -87,7 +87,7 @@ def start_story(user_name):
     time.sleep(1)
     print('25 years have gone by now.\n') 
     time.sleep(4)
-    print('You have 3 kids, gone through a nasty divorce.')
+    print('You lost custody of all 3 of your kids after going through a nasty divorce.')
     time.sleep(2)
     print('Your spouse has cheated on you with the bartender at your local Olive Garden.')
     time.sleep(2)
@@ -99,6 +99,8 @@ def start_story(user_name):
     time.sleep(2)
     print('Your objective is to lose enough weight to be approved a surgical gastric bypass procedure.\n'
           'Drop your waist size to 40 before Father Time catches up to you.')
+    time.sleep(2)
+    print("")
 
 
 
@@ -298,13 +300,11 @@ def reset_coordinates(character):
 
 
 def game():
-    # row = 6
-    # column = 6
-    # make_board(row, column)
-    # user_name = input("Please Enter Your Name: ")
-    # start_story(user_name)
-    # row = 6
-    # column = 6
+    row = 6
+    column = 6
+    make_board(row, column)
+    user_name = input("Please Enter Your Name: ")
+    start_story(user_name)
     character = make_character()
     print(character)
     # level = level_up(character)
