@@ -3,20 +3,6 @@ import time
 from operator import truediv
 
 
-def make_board(rows, columns):
-    row = 0
-    board = {}
-
-    while row < rows:
-        column = 0
-        while column < columns:
-            coordinate = (row, column)
-            board.update({coordinate: "Empty Room"})
-            column += 1
-        row += 1
-    return board
-
-
 # def create_character():
 #     name = input("What is your name? ")
 #     character = {"Name": name, "Waist Size": 55, "Dedication to lose weight": 50}
@@ -109,25 +95,14 @@ def make_character():
     return {'X-Coordinates': 0, 'Y-Coordinates': 0, 'Floor': 1, 'Waist': 55} 
 
 
-# def make_floors(rows, columns):
+def make_board(rows, columns):
 
-#     board = {}
-#     for row in range(rows):
-#         for col in range(columns):
-#             board[(row, col)] = 'Empty room'
-#     return board
+    board = {}
+    for row in range(rows):
+        for col in range(columns):
+            board[(row, col)] = 'Empty room'
+    return board
 
-
-# def level_up(character): # = level
-#     if character['Waist'] == 50:
-#         character['Floor'] = 2
-#         make_floors(rows,columns)
-#     elif character['Waist'] == 45:
-#         character['Floor'] = 3
-#         make_floors(rows, columns)
-#     elif character['Waist'] == 40:
-#         print("Game over")
-#         # character['Floor'] = 'WINNER'
 
 
 def get_user_choice():
