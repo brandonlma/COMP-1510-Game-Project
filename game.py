@@ -51,54 +51,54 @@ from operator import truediv
 #         return "yourself"
 
 
-# def start_story(user_name):
+def start_story(user_name):
 
-#     print('\nHi '+ user_name + ', welcome to the game of life! Lets begin!\n')
-#     time.sleep(3)
-#     print('You are 25 years old, fresh out of college hot shot. You just got a job\n'
-#         'at some big law firm making qauter million dollars a year. \n')
-#     time.sleep(5)
-#     print('A year goes by and now your making over 300k a year now, and you\'ve just \n'
-#         'started a relationship with your smoking hot partner.\n')
-#     time.sleep(5)
-#     print('4 years go by, now your making close to a MILLION dollars a year.\n'
-#           'You\'ve just got married to the love of your life,\n'
-#           'and you just bought a new home in a gated community with a massive backyard pool. \n')
-#     time.sleep(5)
-#     print('LIFE\n')
-#     time.sleep(1)
-#     print('IS\n')
-#     time.sleep(1)
-#     print('GREAT\n')
-#     time.sleep(1)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(0.5)
-#     print('.....\n')
-#     time.sleep(1)
-#     print('25 years have gone by now.\n') 
-#     time.sleep(4)
-#     print('You have 3 kids, gone through a nasty divorce.')
-#     time.sleep(2)
-#     print('Your spouse has cheated on you with the bartender at your local Olive Garden.')
-#     time.sleep(2)
-#     print('You\'ve gambled your money away through a gambling addiction.')
-#     time.sleep(2)
-#     print('And most importantly, you\'ve eaten your sadness away and gained 300lbs.')
-#     time.sleep(2)
-#     print('Your waist size is now 55 and none of your pants fit you anymore.\n')
-#     time.sleep(2)
-#     print('Your objective is to lose enough weight to be approved a surgical gastric bypass procedure.\n'
-#           'Drop your waist size to 40 before Father Time catches up to you.')
+    print('\nHi '+ user_name + ', welcome to the game of life! Lets begin!\n')
+    time.sleep(3)
+    print('You are 25 years old, fresh out of college hot shot. You just got a job\n'
+        'at some big law firm making qauter million dollars a year. \n')
+    time.sleep(5)
+    print('A year goes by and now your making over 300k a year now, and you\'ve just \n'
+        'started a relationship with your smoking hot partner.\n')
+    time.sleep(5)
+    print('4 years go by, now your making close to a MILLION dollars a year.\n'
+          'You\'ve just got married to the love of your life,\n'
+          'and you just bought a new home in a gated community with a massive backyard pool. \n')
+    time.sleep(5)
+    print('LIFE\n')
+    time.sleep(1)
+    print('IS\n')
+    time.sleep(1)
+    print('GREAT\n')
+    time.sleep(1)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(0.5)
+    print('.....\n')
+    time.sleep(1)
+    print('25 years have gone by now.\n') 
+    time.sleep(4)
+    print('You have 3 kids, gone through a nasty divorce.')
+    time.sleep(2)
+    print('Your spouse has cheated on you with the bartender at your local Olive Garden.')
+    time.sleep(2)
+    print('You\'ve gambled your money away through a gambling addiction.')
+    time.sleep(2)
+    print('And most importantly, you\'ve eaten your sadness away and gained 300lbs.')
+    time.sleep(2)
+    print('Your waist size is now 55 and none of your pants fit you anymore.\n')
+    time.sleep(2)
+    print('Your objective is to lose enough weight to be approved a surgical gastric bypass procedure.\n'
+          'Drop your waist size to 40 before Father Time catches up to you.')
 
 
 
@@ -126,6 +126,7 @@ def make_character():
 #     elif character['Waist'] == 40:
 #         print("Game over")
 #         # character['Floor'] = 'WINNER'
+
 
 def get_user_choice():
     """
@@ -157,6 +158,7 @@ def get_user_choice():
             print("Please enter a valid direction")
 
     return direction
+
 
 def validate_move(board, character, direction):
     """
@@ -288,6 +290,9 @@ def check_if_goal_attained(rows, columns, character):
         return True
     else:
         return False
+    
+def reset_coordinates():
+    pass
 
 
 def game():
