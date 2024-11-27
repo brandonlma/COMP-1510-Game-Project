@@ -291,8 +291,10 @@ def check_if_goal_attained(rows, columns, character):
     else:
         return False
     
-def reset_coordinates():
-    pass
+
+def reset_coordinates(character):
+    character['X-coordinate'] = 0
+    character['Y-coordinate'] = 0
 
 
 def game():
