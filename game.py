@@ -93,7 +93,10 @@ def print_map(rows, columns, character):
     
     print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
     for y in range(rows):
-        print("------------------------------")
+        temporary_row = ""
+        for num in range(columns):
+            temporary_row += "-----"
+        print(temporary_row)
         temp = ""
         for x in range(columns):
             temp += "| "
@@ -103,7 +106,7 @@ def print_map(rows, columns, character):
                 temp += " "
             temp += " |"
         print(temp)
-        print("------------------------------", character["X-Coordinate"], character["Y-Coordinate"])
+        print(temporary_row)
 
 
         
