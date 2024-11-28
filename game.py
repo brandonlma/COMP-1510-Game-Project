@@ -230,7 +230,7 @@ def move_character(character, direction):
     character['Y-coordinate'] = y
 
 
-def check_if_goal_attained(rows, columns, character):
+def check_if_level_attained(rows, columns, character):
     """
     Determine if character has reached goal.
 
@@ -246,17 +246,17 @@ def check_if_goal_attained(rows, columns, character):
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     True
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     False
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     False
     """
 
@@ -273,15 +273,108 @@ def reset_coordinates(character):
     character['X-coordinate'] = 0
     character['Y-coordinate'] = 0
 
+def fight_final_boss(character, user_name):
+    character['hp'] = 2
+    while character['hp'] > 0:
+        input_one = input(f"Tell me {user_name}, what did you eat for breakfast this morning? Lying is acceptable,"
+                          f"just make sure I don't catch you.\n")
+        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False\n '
+                          f'Enter "1" for True or "0" for False'))
+        random_num = random.randint(1,3)
+        print("Hmmmmm, I'm gonna take a guess and say\n...........")
+        time.sleep(2)
+        if random_num == 1:
+            print("TRUE")
+        else:
+            print("FALSE")
+
+        if random_num == input_two:
+            character['hp'] -= 1
+            if random == 1:
+                print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY")
+            else:
+                print("HAHAHAHAHA I KNEW YOU WERE LYING FATTY")
+
+        else:
+            print("Wow fatty, you fooled me, I guess you can have Lipo")
+            return True
+    return False
+
+
+def check_for_villain(character):
+
+    if character['level'] == 1:
+        random_num = random.randint(1,4)
+    elif character['level'] == 2:
+        random_num = random.randint(1,3)
+    else:
+        random_num = random.randint(1,2)
+
+    print(random_num)
+
+    if random_num == 1:
+        return True
+    else:
+        return False
+
+
+def attributes_upgrade(character, attribute):
+
+    if character['level'] == 1:
+        attribute['punch'] = 2
+    elif character['level'] == 2:
+        attribute['lick'] = 3
+    # else:
+    #     attribute['level'] = choice
+
+def is_alive(character):
+    if character['hp'] > 0:
+        return True
+    else:
+        return False
+
+def increase_floor(character):
+    character['level'] += 1
+    return character['level']
+
+def fight_villain():
+    pass
+
 
 def game():
     row = 6
     column = 6
+    board = make_board(row, column)
+    direction = get_user_choice()
     make_board(row, column)
     user_name = input("Please Enter Your Name: ")
     start_story(user_name)
     character = make_character()
-    print(character)
+    while is_alive and character['level'] <= 3:
+        # describe_current_location()
+        direction = get_user_choice()
+        if validate_move(board, character, direction):
+            move_character(character, direction)
+            villain = check_for_villain(character)
+            if villain:
+                # fight_villain()
+                is_alive(character)
+            check_if_level_attained(row, column, character)
+            if check_if_level_attained(row, column, character):
+                increase_floor(character)
+                reset_coordinates(character)
+                attributes_upgrade(character, character)
+        else:
+            print("You can't go past the board")
+    if is_alive(character):
+        fight_final_boss(character, user_name)
+        if fight_final_boss(character, user_name):
+            print("Congratulations! You won LIPOSUCTION!!")
+        else:
+            print("You lost. Have fun love handles")
+    else:
+        print("You lost. Have fun love handles")
+
     # level = level_up(character)
 
 
