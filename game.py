@@ -89,6 +89,27 @@ def start_story(user_name):
     print("")
 
 
+def print_map(rows, columns, character):
+    
+    print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
+    for y in range(rows):
+        print("------------------------------")
+        temp = ""
+        for x in range(columns):
+            temp += "| "
+            if character["X-Coordinates"] == x and character["Y-Coordinates"] == y:
+                temp += "O"
+            else:
+                temp += " "
+            temp += " |"
+        print(temp)
+        print("------------------------------")
+
+
+        
+
+
+
 
 def make_character():
 
@@ -278,10 +299,11 @@ def game():
     row = 6
     column = 6
     make_board(row, column)
-    user_name = input("Please Enter Your Name: ")
-    start_story(user_name)
+    # user_name = input("Please Enter Your Name: ")
+    # start_story(user_name)
     character = make_character()
-    print(character)
+    print_map(row, column, character)
+    # print(character)
     # level = level_up(character)
 
 
