@@ -148,12 +148,12 @@ def get_user_choice():
     valid_response = True
 
     while valid_response:
-        print("1: South/Down")
-        print("2: East/Right")
-        print("3: North/Up")
-        print("4: West/Left")
-        direction = int(input("Please enter your desired direction (1, 2, 3, or 4): \n"))
-        if direction in [1, 2, 3, 4]:
+        print("W: North/Up\n"
+             "A: West/Left\n"
+             "S: South/Down\n"
+             "D: East/Right")
+        direction = input("Please enter your desired direction (W, A, S, or D): \n").upper()
+        if direction in ["W", "A", "S", "D"]:
             valid_response = False
         else:
             print("Please enter a valid direction")
@@ -197,14 +197,14 @@ def validate_move(board, character, direction):
     x = int(character['X-Coordinate'])
     y = int(character['Y-Coordinate'])
 
-    if direction == 1:
-        y += 1
-    elif direction == 2:
-        x += 1
-    elif direction == 3:
+    if direction == "W":
         y -= 1
-    else:
+    elif direction == "A":
         x -= 1
+    elif direction == "S":
+        y += 1
+    else:
+        x += 1
 
     if (y, x) in board:
         return True
@@ -241,14 +241,14 @@ def move_character(character, direction):
     x = int(character['X-Coordinate'])
     y = int(character['Y-Coordinate'])
 
-    if direction == 1:
-        y += 1
-    elif direction == 2:
-        x += 1
-    elif direction == 3:
+    if direction == "W":
         y -= 1
-    else:
+    elif direction == "A":
         x -= 1
+    elif direction == "S":
+        y += 1
+    else:
+        x += 1
 
     character['X-Coordinate'] = x
     character['Y-Coordinate'] = y
