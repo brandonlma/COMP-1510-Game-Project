@@ -97,13 +97,13 @@ def print_map(rows, columns, character):
         temp = ""
         for x in range(columns):
             temp += "| "
-            if character["X-Coordinates"] == x and character["Y-Coordinates"] == y:
+            if character["X-Coordinate"] == x and character["Y-Coordinate"] == y:
                 temp += "O"
             else:
                 temp += " "
             temp += " |"
         print(temp)
-        print("------------------------------")
+        print("------------------------------", character["X-Coordinate"], character["Y-Coordinate"])
 
 
         
@@ -113,7 +113,7 @@ def print_map(rows, columns, character):
 
 def make_character():
 
-    return {'X-Coordinates': 0, 'Y-Coordinates': 0, 'Floor': 1, 'Waist': 55} 
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55} 
 
 
 def make_board(rows, columns):
@@ -191,8 +191,8 @@ def validate_move(board, character, direction):
     False
     """
 
-    x = int(character['X-coordinate'])
-    y = int(character['Y-coordinate'])
+    x = int(character['X-Coordinate'])
+    y = int(character['Y-Coordinate'])
 
     if direction == 1:
         y += 1
@@ -235,8 +235,8 @@ def move_character(character, direction):
     {'Y-coordinate': 4, 'X-coordinate': 4, 'Current HP': 5}
     """
 
-    x = int(character['X-coordinate'])
-    y = int(character['Y-coordinate'])
+    x = int(character['X-Coordinate'])
+    y = int(character['Y-Coordinate'])
 
     if direction == 1:
         y += 1
@@ -247,8 +247,8 @@ def move_character(character, direction):
     else:
         x -= 1
 
-    character['X-coordinate'] = x
-    character['Y-coordinate'] = y
+    character['X-Coordinate'] = x
+    character['Y-Coordinate'] = y
 
 
 def check_if_goal_attained(rows, columns, character):
@@ -281,8 +281,8 @@ def check_if_goal_attained(rows, columns, character):
     False
     """
 
-    x = character['X-coordinate']
-    y = character['Y-coordinate']
+    x = character['X-Coordinate']
+    y = character['Y-Coordinate']
 
     if (x, y) == (columns - 1, rows - 1):
         return True
@@ -291,20 +291,28 @@ def check_if_goal_attained(rows, columns, character):
     
 
 def reset_coordinates(character):
-    character['X-coordinate'] = 0
-    character['Y-coordinate'] = 0
+    character['X-Coordinate'] = 0
+    character['Y-Coordinate'] = 0
 
 
 def game():
     row = 6
     column = 6
-    make_board(row, column)
+    board = make_board(row, column)
     # user_name = input("Please Enter Your Name: ")
     # start_story(user_name)
     character = make_character()
-    print_map(row, column, character)
-    # print(character)
-    # level = level_up(character)
+    game_not_ended = True
+    while game_not_ended:
+        direction = get_user_choice()
+        move_allowed = validate_move(board, character, direction)
+        if move_allowed:
+            move_character(character, direction)
+            print_map(row, column, character)
+        else:
+            print("Move is not valid. Try Again.")
+        # print(character)
+        # level = level_up(character)
 
 
 def main():
