@@ -1,14 +1,5 @@
 import random
 import time
-from operator import truediv
-
-
-# def create_character():
-#     name = input("What is your name? ")
-#     character = {"Name": name, "Waist Size": 55, "Dedication to lose weight": 50}
-#     print("Hello " + name + "! Welcome to The Central Hospital for Gastric Bypass Surgeries. I see you want to apply for a Gastric Bypass surgery.")
-#     print("However, you must have a consultation with Dr.Now before getting approved. Please follow me this way. ")
-#     return character
 
 
 # def fight_temptation():
@@ -38,6 +29,14 @@ from operator import truediv
 
 
 def start_story(user_name):
+    """
+    Prints out initial story of the game.
+
+    :param user_name: a string
+    :precondition: user_name is a string of the user's desired name
+    :postcondtion: accurately prints out the story with user's name.
+    :return: None
+    """
 
     print('\nHi '+ user_name + ', welcome to the game of life! Lets begin!\n')
     time.sleep(3)
@@ -90,6 +89,20 @@ def start_story(user_name):
 
 
 def print_map(rows, columns, character):
+    """
+    Prints the board map.
+
+    Displays the board map including special characters to represent locations of character and
+    special items.
+
+    :param rows: an integer
+    :param columns: an integer
+    :param character: a dictionary
+    :precondition: rows and columns are positive integers greater than 0
+    :precondition: character contains coordinates of current location
+    :postcondition: accurately displays board map and location of character and special items
+    :return: None
+    """
     
     print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
     for y in range(rows):
@@ -115,12 +128,25 @@ def print_map(rows, columns, character):
 
 
 def make_character():
+    """
+    Initializes character's position, stats, and attributes.
+
+    :return: a dictionary containing keys and initialized values
+    """
 
     return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55} 
 
 
 def make_board(rows, columns):
+    """
+    Builds a board with desired length and width.
 
+    :param rows: an integer
+    :param columns: in integer
+    :precondition: rows and columns must be positive integers greater than 0
+    :postcondition: creates a dictionary of all coordinates keys attached to description values
+    :return: a dictionary
+    """
     board = {}
     for row in range(rows):
         for col in range(columns):
@@ -222,7 +248,7 @@ def move_character(character, direction):
     :param direction: an integer correlated to a specific direction
     :precondition: character's current coordinates are valid
     :postcondition: accurately move character
-    :return: a key:value pair containing character's new coordinates
+    :return: a dictionary
 
     >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 1
@@ -252,6 +278,8 @@ def move_character(character, direction):
 
     character['X-Coordinate'] = x
     character['Y-Coordinate'] = y
+
+    return character
 
 
 def check_if_goal_attained(rows, columns, character):
@@ -294,9 +322,19 @@ def check_if_goal_attained(rows, columns, character):
 
 
 def next_level_reset(character):
+    """
+    Resets character's coordinates when reaching a new level/floor.
+
+    :param character: a dictionary containing character's coordinates
+    :precondition: character's coordinates are (5, 5)
+    :postcondition: character's coordinates are reset to (0,0)
+    :return: a dictionary
+    """
     character["Floor"] += 1
     character['X-Coordinate'] = 0
     character['Y-Coordinate'] = 0
+
+    return character
 
 
 def game():
