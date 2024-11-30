@@ -103,7 +103,6 @@ def print_map(rows, columns, character):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    
     print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
     for y in range(rows):
         temporary_row = ""
@@ -122,19 +121,13 @@ def print_map(rows, columns, character):
         print(temporary_row)
 
 
-        
-
-
-
-
 def make_character():
     """
     Initializes character's position, stats, and attributes.
 
     :return: a dictionary containing keys and initialized values
     """
-
-    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55} 
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Attributes': {}}
 
 
 def make_board(rows, columns):
@@ -154,7 +147,6 @@ def make_board(rows, columns):
     return board
 
 
-
 def get_user_choice():
     """
     Determine desired direction of movement.
@@ -170,7 +162,6 @@ def get_user_choice():
     4: West/Left
     Please enter your desired direction (1, 2, 3, or 4):
     """
-
     valid_response = True
 
     while valid_response:
@@ -219,7 +210,6 @@ def validate_move(board, character, direction):
     >>> validate_move(board, character, direction)
     False
     """
-
     x = int(character['X-Coordinate'])
     y = int(character['Y-Coordinate'])
 
@@ -263,7 +253,6 @@ def move_character(character, direction):
     >>> move_character(character, direction)
     {'Y-coordinate': 4, 'X-coordinate': 4, 'Current HP': 5}
     """
-
     x = int(character['X-Coordinate'])
     y = int(character['Y-Coordinate'])
 
@@ -311,7 +300,6 @@ def check_if_goal_attained(rows, columns, character):
     >>> check_if_goal_attained(rows, columns, character)
     False
     """
-
     x = character['X-Coordinate']
     y = character['Y-Coordinate']
 
@@ -369,7 +357,6 @@ def main():
     Drive the program.
     """
     game()
-
 
 
 if __name__ == "__main__":
