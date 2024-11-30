@@ -300,6 +300,9 @@ def next_level_reset(character):
 
 
 def game():
+    """
+    Drive the game.
+    """
     row = 6
     column = 6
     board = make_board(row, column)
@@ -324,6 +327,9 @@ def game():
 
 
 def main():
+    """
+    Drive the program.
+    """
     game()
 
 
