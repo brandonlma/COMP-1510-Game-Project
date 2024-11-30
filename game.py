@@ -291,9 +291,10 @@ def check_if_goal_attained(rows, columns, character):
         return True
     else:
         return False
-    
 
-def reset_coordinates(character):
+
+def next_level_reset(character):
+    character["Floor"] += 1
     character['X-Coordinate'] = 0
     character['Y-Coordinate'] = 0
 
@@ -302,20 +303,24 @@ def game():
     row = 6
     column = 6
     board = make_board(row, column)
-    # user_name = input("Please Enter Your Name: ")
-    # start_story(user_name)
+    user_name = input("Please Enter Your Name: ")
+    start_story(user_name)
     character = make_character()
     game_not_ended = True
     while game_not_ended:
-        direction = get_user_choice()
-        move_allowed = validate_move(board, character, direction)
-        if move_allowed:
-            move_character(character, direction)
-            print_map(row, column, character)
+        reached_next_level = check_if_goal_attained(board, character, character)
+        if reached_next_level:
+            next_level_reset(character)
         else:
-            print("Move is not valid. Try Again.")
-        # print(character)
-        # level = level_up(character)
+            direction = get_user_choice()
+            move_allowed = validate_move(board, character, direction)
+            if move_allowed:
+                move_character(character, direction)
+                print_map(row, column, character)
+            else:
+                print("Move is not valid. Try Again.")
+            # print(character)
+            # level = level_up(character)
 
 
 def main():
