@@ -127,7 +127,7 @@ def describe_current_location(rows, columns, character):
                 temp += " "
             temp += " |"
         print(temp)
-        print("------------------------------", character["X-Coordinate"], character["Y-Coordinate"])
+        print("------------------------------")
 
 
         
@@ -141,7 +141,7 @@ def make_character():
 
     :return: a dictionary containing keys and initialized values
     """
-    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'Attributes': {}}
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': {}}
 
 
 def make_board(rows, columns):
@@ -231,11 +231,11 @@ def validate_move(board, character, direction):
     y = int(character['Y-Coordinate'])
 
     if direction == "W":
-        y += 1
+        y -= 1
     elif direction == "D":
         x += 1
     elif direction == "S":
-        y -= 1
+        y += 1
     else:
         x -= 1
 
@@ -280,7 +280,7 @@ def move_character(character, direction):
     elif direction == "S":
         y += 1
     else:
-        x -= 1
+        x += 1
 
     character['X-Coordinate'] = x
     character['Y-Coordinate'] = y
@@ -385,7 +385,7 @@ def attributes_upgrade(character, attribute):
     #     attribute['level'] = choice
 
 def is_alive(character):
-    if character['hp'] > 0:
+    if character['HP'] > 0:
         return True
     else:
         return False
