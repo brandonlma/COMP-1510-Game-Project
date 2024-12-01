@@ -238,10 +238,6 @@ def validate_move(board, character, direction):
         y += 1
     else:
         x += 1
-    elif direction == 3:
-        y -= 1
-    else:
-        x -= 1
 
     if (y, x) in board:
         return True
@@ -292,7 +288,7 @@ def move_character(character, direction):
     return character
 
 
-def check_if_goal_attained(rows, columns, character):
+def check_if_level_attained(rows, columns, character):
     """
     Determine if character has reached goal.
 
