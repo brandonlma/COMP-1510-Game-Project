@@ -89,10 +89,31 @@ def start_story(user_name):
     print("")
 
 
+def print_map(rows, columns, character):
+
+    print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
+    for y in range(rows):
+        print("------------------------------")
+        temp = ""
+        for x in range(columns):
+            temp += "| "
+            if character["X-Coordinate"] == x and character["Y-Coordinate"] == y:
+                temp += "O"
+            else:
+                temp += " "
+            temp += " |"
+        print(temp)
+        print("------------------------------", character["X-Coordinate"], character["Y-Coordinate"])
+
+
+
+
+
+
 
 def make_character():
 
-    return {'X-Coordinates': 0, 'Y-Coordinates': 0, 'Floor': 1, 'Waist': 55} 
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55}
 
 
 def make_board(rows, columns):
@@ -230,7 +251,7 @@ def move_character(character, direction):
     character['Y-coordinate'] = y
 
 
-def check_if_level_attained(rows, columns, character):
+def check_if_goal_attained(rows, columns, character):
     """
     Determine if character has reached goal.
 
@@ -246,17 +267,17 @@ def check_if_level_attained(rows, columns, character):
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> check_if_goal_attained(rows, columns, character)
     True
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> check_if_goal_attained(rows, columns, character)
     False
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> check_if_goal_attained(rows, columns, character)
     False
     """
 
