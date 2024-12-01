@@ -1,3 +1,11 @@
+def display_user_stats():
+    """
+
+    :return:
+    """
+    pass
+
+
 def describe_current_location(rows, columns, character):
     """
     Prints the board map.
