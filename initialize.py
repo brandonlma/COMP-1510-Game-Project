@@ -86,7 +86,7 @@ def start_story(user_name):
 
 
 def main():
-    main()
+    start_story()
 
 if __name__ == '__main__':
     main()

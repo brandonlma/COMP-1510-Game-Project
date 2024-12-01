@@ -32,7 +32,7 @@ def describe_current_location(rows, columns, character):
 
 
 def main():
-    main()
+    pass
 
 
 if __name__ == '__main__':

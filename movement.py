@@ -171,7 +171,7 @@ def increase_floor(character):
     return character['level']
 
 def main():
-    main()
+    pass
 
 if __name__ == '__main__':
     main()

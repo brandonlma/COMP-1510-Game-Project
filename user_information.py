@@ -15,7 +15,7 @@ def is_alive(character):
 
 
 def main():
-    main()
+    pass
 
 
 if __name__ == '__main__':
