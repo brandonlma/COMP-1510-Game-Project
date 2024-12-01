@@ -97,7 +97,7 @@ def start_story(user_name):
     print("")
 
 
-def print_map(rows, columns, character):
+def describe_current_location(rows, columns, character):
     """
     Prints the board map.
 
@@ -112,7 +112,7 @@ def print_map(rows, columns, character):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", character["Floor"], "Current HP:", character["Waist"])
+    print("\nCurrent Floor:", character["level"], "Current HP:", character["Waist"])
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):
@@ -141,7 +141,7 @@ def make_character():
 
     :return: a dictionary containing keys and initialized values
     """
-    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Attributes': {}}
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'Attributes': {}}
 
 
 def make_board(rows, columns):
@@ -185,13 +185,13 @@ def get_user_choice():
              "A: West/Left\n"
              "S: South/Down\n"
              "D: East/Right")
-        direction = input("Please enter your desired direction (W, A, S, or D): \n").upper()
-        if direction in ["W", "A", "S", "D"]:
+        move = input("Please enter your desired direction (W, A, S, or D): \n").upper()
+        if move in ["W", "A", "S", "D"]:
             valid_response = False
         else:
             print("Please enter a valid direction")
 
-    return direction
+    return move
 
 
 def validate_move(board, character, direction):
@@ -231,14 +231,10 @@ def validate_move(board, character, direction):
     y = int(character['Y-Coordinate'])
 
     if direction == "W":
-        y -= 1
-    elif direction == "A":
-        x -= 1
-    elif direction == "S":
         y += 1
-    else:
+    elif direction == "D":
         x += 1
-    elif direction == 3:
+    elif direction == "S":
         y -= 1
     else:
         x -= 1
@@ -292,7 +288,7 @@ def move_character(character, direction):
     return character
 
 
-def check_if_goal_attained(rows, columns, character):
+def check_if_level_attained(rows, columns, character):
     """
     Determine if character has reached goal.
 
@@ -308,17 +304,17 @@ def check_if_goal_attained(rows, columns, character):
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     True
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     False
     >>> rows = 5
     >>> columns = 5
     >>> character = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_goal_attained(rows, columns, character)
+    >>> check_if_level_attained(rows, columns, character)
     False
     """
     x = character['X-Coordinate']
@@ -409,13 +405,13 @@ def game():
     row = 6
     column = 6
     board = make_board(row, column)
-    direction = get_user_choice()
+    direction = get_user_choice
     make_board(row, column)
     user_name = input("Please Enter Your Name: ")
-    start_story(user_name)
+    # start_story(user_name)
     character = make_character()
     while is_alive and character['level'] <= 3:
-        # describe_current_location()
+        describe_current_location(row, column, character)
         direction = get_user_choice()
         if validate_move(board, character, direction):
             move_character(character, direction)
