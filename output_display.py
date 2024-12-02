@@ -16,22 +16,39 @@ def intro_image():
 
 
 
-def display_user_stats():
+def display_user_stats(player):
     """
 
     :return:
     """
-    print("+------------------+\n"
-          "|       YOU        |\n"
-          "|       MAKE       |\n"
-          "|        MY        |\n"
-          "|      DREAMS      |\n"
-          "|       COME       |\n"
-          "|       TRUE       |\n"
-          "|                  |\n"
-          "|      I <3 U      |\n"
-          "|      STEAK       |\n"
-          "+------------------+\n")
+
+    number = 0;
+    print("\n+--------------------------------------------+\n"
+          "| YOUR INFORMATION:                          |\n"
+          "+----------------------+---------------------+\n"
+          "| Current Coordinates: |", player["X-Coordinate"], ",", player["Y-Coordinate"], "              |\n"
+          "| Floor:               |", player["level"], "                  |\n"
+          "| Health:              |", player["HP"], "                  |\n"
+          "| Waist Size:          |", player["Waist"], "                 |\n"
+          "+----------------------+---------------------+")
+    attributes = player["Attributes"]
+    for keys, values in player["Attributes"].items():
+        temporary_string = ""
+        if number == 0:
+            temporary_string += "| Attack Abilities:    | "
+            number += 1
+        else:
+            temporary_string += "|                      | "
+        yum = str(attributes[keys])
+        temporary_string += keys
+        while len(temporary_string) < 35:
+            temporary_string += " "
+        temporary_string += " = " + yum + " DMG"
+        while len(temporary_string) < 45:
+            temporary_string += " "
+        temporary_string += "|"
+        print(temporary_string)
+    print("+----------------------+---------------------+")
 
 
 
@@ -72,7 +89,7 @@ def describe_current_location(rows, columns, character):
 
 
 def main():
-    intro_image()
+    pass
 
 
 if __name__ == '__main__':
