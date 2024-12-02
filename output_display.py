@@ -3,7 +3,21 @@ def display_user_stats():
 
     :return:
     """
-    pass
+    print("+------------------+\n"
+          "|       YOU        |\n"
+          "|       MAKE       |\n"
+          "|        MY        |\n"
+          "|      DREAMS      |\n"
+          "|       COME       |\n"
+          "|       TRUE       |\n"
+          "|                  |\n"
+          "|      I <3 U      |\n"
+          "|      STEAK       |\n"
+          "+------------------+\n")
+
+
+
+
 
 
 def describe_current_location(rows, columns, character):
@@ -40,7 +54,7 @@ def describe_current_location(rows, columns, character):
 
 
 def main():
-    pass
+    display_user_stats()
 
 
 if __name__ == '__main__':
