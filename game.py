@@ -23,7 +23,7 @@ def game():
             movement.move_character(player, direction)
             villain = battle.check_for_villain(player)
             if villain:
-                # fight_villain()
+                battle.fight_villain(player)
                 user_information.is_alive(player)
             movement.check_if_level_attained(row, column, player)
             if movement.check_if_level_attained(row, column, player):

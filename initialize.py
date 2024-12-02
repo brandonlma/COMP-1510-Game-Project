@@ -6,7 +6,7 @@ def make_character():
 
     :return: a dictionary containing keys and initialized values
     """
-    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': {}}
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
 
 
 def make_board(rows, columns):

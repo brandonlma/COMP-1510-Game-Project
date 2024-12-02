@@ -1,4 +1,5 @@
 import random
+from sys import excepthook
 
 
 # def random_enemy(character):
@@ -52,11 +53,11 @@ def fight_final_boss(character, user_name):
 def check_for_villain(character):
 
     if character['level'] == 1:
-        random_num = random.randint(1,4)
+        random_num = random.randint(0,4)
     elif character['level'] == 2:
-        random_num = random.randint(1,3)
+        random_num = random.randint(0,3)
     else:
-        random_num = random.randint(1,2)
+        random_num = random.randint(0,2)
 
     print(random_num)
 
@@ -65,12 +66,77 @@ def check_for_villain(character):
     else:
         return False
 
+def attributes_upgrade(character, attribute):
 
-def fight_villain():
-    pass
+    if character['level'] == 1:
+        attribute['punch'] = 2
+    elif character['level'] == 2:
+        attribute['lick'] = 3
+    else:
+        attribute['level'] = 6 #choice
+
+
+
+def fight_villain(player):
+    def fight_attribute_is_valid(player, fight_input):
+        if fight_input in player['Attributes']:
+            return True
+        else:
+            return False
+
+    attribute_is_valid = False
+    while not attribute_is_valid:
+        fight_input = input(f"You have encountered a villain. Choose your available attributes to fight back "
+                         f"\n{player['Attributes']} \nEnter attack name to choose: ")
+        attribute_is_valid = fight_attribute_is_valid(player, fight_input)
+        if not attribute_is_valid:
+            print('Wrong value. Please enter a valid attribute')
+
+    value = random.randint(0,100)
+    if player['level'] == 1:
+        if value >= 80:
+            return True
+        else:
+            return False
+    if player['level'] == 2:
+        if value >= 70:
+            return True
+        else:
+            return False
+    else:
+        if value >= 60:
+            return True
+        else:
+            return False
+
+    # while True:
+    #     fight_input = input(f"You have encountered a villain. Choose your available attributes to fight back "
+    #                          f"\n{player['Attributes']} \nEnter attack name to choose: ")
+    #     try: fight_input in player['Attributes']
+    #     except fight_input not in player['Attributes']:
+    #         print('Wrong Value, Please enter a valid attribute')
+    #     else:
+    #         return True
+    #
+
+# def fight_attribute_is_valid(player, fight_input):
+#     if fight_input in player['Attributes']:
+#         return True
+#     else:
+#         return False
+
+
+
+
+
+
+
+
 
 def main():
-    pass
+    attribute = {'punch': 2}
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attribute}
+    fight_villain(player)
 
 if __name__ == '__main__':
     main()
