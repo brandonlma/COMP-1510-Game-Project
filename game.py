@@ -14,8 +14,8 @@ def game():
     board = initialize.make_board(row, column)
     initialize.make_board(row, column)
     attributes = {'lick': 1}
-    user_name = input("Please Enter Your Name: ")
-    # start_story(user_name)
+    user_name = output_display.intro_image()
+    initialize.start_story(user_name)
     player = initialize.make_character(attributes)
     while user_information.is_alive and player['level'] <= 3:
         output_display.describe_current_location(row, column, player)
