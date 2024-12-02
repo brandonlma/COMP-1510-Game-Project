@@ -35,11 +35,12 @@ def game():
         else:
             print("You can't go past the board")
     if user_information.is_alive(player):
-        battle.fight_final_boss(player, user_name)
-        if battle.fight_final_boss(player, user_name):
+        final_game = battle.fight_final_boss(player, user_name)
+        if final_game:
             print("Congratulations! You won LIPOSUCTION!!")
         else:
             print("You lost. Have fun love handles")
+            player['HP'] = 0
     else:
         print("You lost. Have fun love handles")
 
