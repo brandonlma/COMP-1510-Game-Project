@@ -24,12 +24,12 @@ from sys import excepthook
 
 
 def fight_final_boss(character, user_name):
-    character['hp'] = 2
-    while character['hp'] > 0:
+    character['HP'] = 2
+    while character['HP'] > 0:
         input_one = input(f"Tell me {user_name}, what did you eat for breakfast this morning? Lying is acceptable,"
                           f"just make sure I don't catch you.\n")
-        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False\n '
-                          f'Enter "1" for True or "0" for False'))
+        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False\n'
+                          f'Enter "1" for True or "0" for False:\n'))
         random_num = random.randint(1,3)
         print("Hmmmmm, I'm gonna take a guess and say\n...........")
         time.sleep(2)
