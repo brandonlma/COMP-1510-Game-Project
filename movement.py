@@ -30,7 +30,7 @@ def get_user_choice():
     return move
 
 
-def validate_move(board, character, direction):
+def validate_move(board, player, direction):
     """
     Verify validity of user's move.
 
@@ -63,8 +63,8 @@ def validate_move(board, character, direction):
     False
     """
 
-    x = int(character['X-Coordinate'])
-    y = int(character['Y-Coordinate'])
+    x = int(player['X-Coordinate'])
+    y = int(player['Y-Coordinate'])
 
     if direction == "W":
         y -= 1
@@ -81,7 +81,7 @@ def validate_move(board, character, direction):
         return False
 
 
-def move_character(character, direction):
+def move_character(player, direction):
     """
     Shifts character's coordinates.
 
@@ -106,8 +106,8 @@ def move_character(character, direction):
     >>> move_character(character, direction)
     {'Y-coordinate': 4, 'X-coordinate': 4, 'Current HP': 5}
     """
-    x = int(character['X-Coordinate'])
-    y = int(character['Y-Coordinate'])
+    x = int(player['X-Coordinate'])
+    y = int(player['Y-Coordinate'])
 
     if direction == "W":
         y -= 1
@@ -118,13 +118,11 @@ def move_character(character, direction):
     else:
         x += 1
 
-    character['X-Coordinate'] = x
-    character['Y-Coordinate'] = y
-
-    return character
+    player['X-Coordinate'] = x
+    player['Y-Coordinate'] = y
 
 
-def check_if_level_attained(rows, columns, character):
+def check_if_level_attained(rows, columns, player):
     """
     Determine if character has reached goal.
 
@@ -153,8 +151,8 @@ def check_if_level_attained(rows, columns, character):
     >>> check_if_level_attained(rows, columns, character)
     False
     """
-    x = character['X-Coordinate']
-    y = character['Y-Coordinate']
+    x = player['X-Coordinate']
+    y = player['Y-Coordinate']
 
     if (x, y) == (columns - 1, rows - 1):
         return True
@@ -162,13 +160,13 @@ def check_if_level_attained(rows, columns, character):
         return False
 
 
-def reset_coordinates(character):
-    character['X-coordinate'] = 0
-    character['Y-coordinate'] = 0
+def reset_coordinates(player):
+    player['X-Coordinate'] = 0
+    player['Y-Coordinate'] = 0
 
-def increase_floor(character):
-    character['level'] += 1
-    return character['level']
+def increase_floor(player):
+    player['level'] += 1
+    return player['level']
 
 def main():
     pass

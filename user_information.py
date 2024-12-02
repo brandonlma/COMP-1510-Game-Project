@@ -1,9 +1,8 @@
-def attributes_upgrade(character, attribute):
-
-    if character['level'] == 1:
-        attribute['punch'] = 2
-    elif character['level'] == 2:
-        attribute['lick'] = 3
+def attributes_upgrade(character, attributes):
+    if character['level'] == 2:
+        attributes['bite'] = 2
+    if character['level'] == 3:
+        attributes['chomp'] = 4
     # else:
     #     attribute['level'] = choice
 

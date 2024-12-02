@@ -1,6 +1,6 @@
 import time
 
-def make_character():
+def make_character(attributes):
     """
     Initializes character's position, stats, and attributes.
 

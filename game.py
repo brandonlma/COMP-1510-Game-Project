@@ -13,11 +13,13 @@ def game():
     column = 6
     board = initialize.make_board(row, column)
     initialize.make_board(row, column)
+    attributes = {'lick': 1}
     user_name = input("Please Enter Your Name: ")
     # start_story(user_name)
-    player = initialize.make_character()
+    player = initialize.make_character(attributes)
     while user_information.is_alive and player['level'] <= 3:
         output_display.describe_current_location(row, column, player)
+        print(player)
         direction = movement.get_user_choice()
         if movement.validate_move(board, player, direction):
             movement.move_character(player, direction)
@@ -29,7 +31,7 @@ def game():
             if movement.check_if_level_attained(row, column, player):
                 movement.increase_floor(player)
                 movement.reset_coordinates(player)
-                user_information.attributes_upgrade(player, player)
+                user_information.attributes_upgrade(player, attributes)
         else:
             print("You can't go past the board")
     if user_information.is_alive(player):
