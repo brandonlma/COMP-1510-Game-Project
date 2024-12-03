@@ -8,11 +8,17 @@ def attributes_upgrade(character, attributes):
     # else:
     #     attribute['level'] = choice
 
+
 def is_alive(player):
     if player['Waist'] < 100:
         return True
     else:
         return False
+
+def level_upgrade(player):
+    print("\nYou've successfully levelled up! -10 Waist size!\n")
+    player['Level'] += 1
+    player['Waist'] -= 10
 
 
 def main():
