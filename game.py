@@ -27,6 +27,9 @@ def game():
             if direction == "E":
                 output_display.display_user_stats(player, user_name)
                 time.sleep(5)
+            if direction == "R":
+                initialize.objective()
+                time.sleep(5)
             else:
                 movement.move_character(player, direction)
                 villain = battle.check_for_villain(player)

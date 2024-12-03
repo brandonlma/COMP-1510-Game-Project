@@ -27,9 +27,10 @@ def get_user_choice(player):
               "| S: South/Down    |\n"
               "| D: East/Right    |\n"
               "| E: View profile  |\n"
+              "| R: View Rules    |\n"
               "+------------------+")
         move = input("Please enter your desired move: ").upper()
-        if move in ["W", "A", "S", "D", "E"]:
+        if move in ["W", "A", "S", "D", "E", "R"]:
             valid_response = False
         else:
             print("Please enter a valid direction")
@@ -73,7 +74,7 @@ def validate_move(board, player, direction):
     x = int(player['X-Coordinate'])
     y = int(player['Y-Coordinate'])
 
-    if direction == "E":
+    if direction == "E" or "R":
         return True
 
     if direction == "W":
