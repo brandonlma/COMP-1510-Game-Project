@@ -87,7 +87,9 @@ def start_story(user_name):
 
 
 def main():
-    start_story()
+    # attributes = {"lick": 1}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    pass
 
 if __name__ == '__main__':
     main()

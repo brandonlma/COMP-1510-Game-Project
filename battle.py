@@ -135,9 +135,9 @@ def fight_villain(player):
 
 
 def main():
-    attribute = {'punch': 2}
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attribute}
-    fight_villain(player)
+    # attributes = {"lick": 1}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    pass
 
 if __name__ == '__main__':
     main()

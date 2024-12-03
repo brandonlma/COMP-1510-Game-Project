@@ -14,6 +14,8 @@ def is_alive(character):
 
 
 def main():
+    # attributes = {"lick": 1}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     pass
 
 
