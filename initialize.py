@@ -95,7 +95,7 @@ def objective():
           '|    attack abilities.                                  |\n'
           '| 4. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 0!       |\n'
           '+-------------------------------------------------------+\n'
-          '| TIP: Level up to lower your waist size by 20!         |\n'
+          '| TIP: Level up to lower your waist size by 10!         |\n'
           '+-------------------------------------------------------+')
 
 
