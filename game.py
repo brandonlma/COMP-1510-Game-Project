@@ -15,7 +15,7 @@ def game():
     initialize.make_board(row, column)
     attributes = {'lick': 1}
     user_name = output_display.intro_image()
-    # initialize.start_story(user_name)
+    initialize.start_story(user_name)
     player = initialize.make_character(attributes)
     output_display.display_user_stats(player, user_name)
     time.sleep(2)
@@ -44,6 +44,7 @@ def game():
                 output_display.describe_current_location(row, column, player)
         else:
             print("You can't go past the board")
+        output_display.describe_current_location(row, column, player)
         if player['Kills'] % 5 == 0 and player['Kills'] != 0:
             user_information.level_upgrade(player)
     if user_information.is_alive(player):
