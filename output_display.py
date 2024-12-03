@@ -44,11 +44,11 @@ def display_user_stats(player, user_name):
             number += 1
         else:
             temporary_string += "|                      | "
-        yum = str(attributes[keys])
+        damage = str(attributes[keys])
         temporary_string += keys
         while len(temporary_string) < 35:
             temporary_string += " "
-        temporary_string += " = " + yum + " DMG"
+        temporary_string += " = " + damage + " DMG"
         while len(temporary_string) < 45:
             temporary_string += " "
         temporary_string += "|"
@@ -75,7 +75,7 @@ def describe_current_location(rows, columns, character):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", character["level"], "Current HP:", character["Waist"])
+    print("\nCurrent Floor:", character["level"], "Current HP:", character["HP"])
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):

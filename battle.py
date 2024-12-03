@@ -79,36 +79,47 @@ def attributes_upgrade(character, attribute):
 
 
 def fight_villain(player):
-    def fight_attribute_is_valid(player, fight_input):
-        if fight_input in player['Attributes']:
-            return True
-        else:
-            return False
 
     attribute_is_valid = False
+    attributes = player['Attributes']
     while not attribute_is_valid:
-        fight_input = input(f"You have encountered a villain. Choose your available attributes to fight back "
-                         f"\n{player['Attributes']} \nEnter attack name to choose: ")
+        print(f"You have encountered a villain. Choose from your available attributes to fight back.")
+        string_of_attributes = ""
+        for keys, values in attributes.items():
+            damage = str(attributes[keys])
+            print(keys + " = +/-" + damage + " DMG")
+        fight_input = input("Enter your desired attack: ")
         attribute_is_valid = fight_attribute_is_valid(player, fight_input)
         if not attribute_is_valid:
-            print('Wrong value. Please enter a valid attribute')
+            print('Wrong value. Please enter a valid attribute.')
+            time.sleep(1)
+
 
     value = random.randint(0,100)
     if player['level'] == 1:
         if value >= 80:
-            return True
+            hp_lost = -1 * player["Attributes"][fight_input]
+            player["HP"] += hp_lost
+            print(r"You've lost! " + str(hp_lost) + "HP")
         else:
-            return False
-    if player['level'] == 2:
+            print("Nice! You defeated the ")
+    elif player['level'] == 2:
         if value >= 70:
-            return True
+            hp_lost = -2 * player["Attributes"][fight_input]
+            player["HP"] += hp_lost
+            print(r"You've lost! " + str(hp_lost) + "HP")
         else:
-            return False
+            print("Nice! You defeated the ")
     else:
         if value >= 60:
-            return True
+            hp_lost = -3 * player["Attributes"][fight_input]
+            player["HP"] += hp_lost
+            print(r"You've lost! " + str(hp_lost) + "HP")
         else:
-            return False
+            print("Nice! You defeated the ")
+
+    time.sleep(2)
+
 
     # while True:
     #     fight_input = input(f"You have encountered a villain. Choose your available attributes to fight back "
@@ -120,23 +131,16 @@ def fight_villain(player):
     #         return True
     #
 
-# def fight_attribute_is_valid(player, fight_input):
-#     if fight_input in player['Attributes']:
-#         return True
-#     else:
-#         return False
-
-
-
-
-
-
-
+def fight_attribute_is_valid(player, fight_input):
+    if fight_input in player['Attributes']:
+        return True
+    else:
+        return False
 
 
 def main():
-    # attributes = {"lick": 1}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    # attributes = {"lick": 1, "bite": 2}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 2, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     pass
 
 if __name__ == '__main__':
