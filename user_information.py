@@ -9,7 +9,7 @@ def attributes_upgrade(character, attributes):
     #     attribute['level'] = choice
 
 def is_alive(player):
-    if player['HP'] > 0:
+    if player['Waist'] < 100:
         return True
     else:
         return False

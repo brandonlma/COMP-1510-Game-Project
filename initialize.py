@@ -88,6 +88,7 @@ def objective():
           '+-------------------------------------------------------+\n'
           '| 1. Reach the 4th level of the hospital without        |\n'
           '|    getting too fat.                                   |\n'
+          '|    STAY BELOW WAIST SIZE 100 OR YOU LOSE              |\n'
           '| 2. Resist the temptation of junk food by              |\n'
           '|    defeating monsters.                                |\n'
           '| 3. Defeat monsters to level up and achieve better     |\n'

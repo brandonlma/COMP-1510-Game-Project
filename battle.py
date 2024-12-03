@@ -98,23 +98,23 @@ def fight_villain(player):
     value = random.randint(0,100)
     if player['level'] == 1:
         if value >= 80:
-            hp_lost = -1 * player["Attributes"][fight_input]
-            player["HP"] += hp_lost
-            print(r"You've lost! " + str(hp_lost) + "HP")
+            waist_size_gained = 1 * player["Attributes"][fight_input]
+            player["Waist"] += waist_size_gained
+            print(r"You've lost! +" + str(waist_size_gained) + "Waist Size")
         else:
             print("Nice! You defeated the ")
     elif player['level'] == 2:
         if value >= 70:
-            hp_lost = -2 * player["Attributes"][fight_input]
-            player["HP"] += hp_lost
-            print(r"You've lost! " + str(hp_lost) + "HP")
+            waist_size_gained = 2 * player["Attributes"][fight_input]
+            player["Waist"] += waist_size_gained
+            print(r"You've lost! +" + str(waist_size_gained) + "Waist Size")
         else:
             print("Nice! You defeated the ")
     else:
         if value >= 60:
-            hp_lost = -3 * player["Attributes"][fight_input]
-            player["HP"] += hp_lost
-            print(r"You've lost! " + str(hp_lost) + "HP")
+            waist_size_gained = 3 * player["Attributes"][fight_input]
+            player["Waist"] += waist_size_gained
+            print(r"You've lost! +" + str(waist_size_gained) + "Waist Size")
         else:
             print("Nice! You defeated the ")
 
