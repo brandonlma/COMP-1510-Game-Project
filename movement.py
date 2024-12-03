@@ -175,12 +175,12 @@ def reset_coordinates(player):
     player['Y-Coordinate'] = 0
 
 def increase_floor(player):
-    player['level'] += 1
-    return player['level']
+    player['Level'] += 1
+    return player['Level']
 
 def main():
     # attributes = {"lick": 1}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     pass
 
 if __name__ == '__main__':

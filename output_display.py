@@ -80,7 +80,7 @@ def describe_current_location(rows, columns, player):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", player["level"], "Waist Size:", player["Waist"])
+    print("\nCurrent Floor:", player["Level"], "Waist Size:", player["Waist"])
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):

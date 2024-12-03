@@ -53,9 +53,9 @@ def fight_final_boss(player, user_name):
 
 def check_for_villain(player):
 
-    if player['level'] == 1:
+    if player['Level'] == 1:
         random_num = random.randint(0,4)
-    elif player['level'] == 2:
+    elif player['Level'] == 2:
         random_num = random.randint(0,3)
     else:
         random_num = random.randint(0,2)
@@ -69,12 +69,12 @@ def check_for_villain(player):
 
 def attributes_upgrade(player, attribute):
 
-    if player['level'] == 1:
+    if player['Level'] == 1:
         attribute['punch'] = 2
-    elif player['level'] == 2:
+    elif player['Level'] == 2:
         attribute['lick'] = 3
     else:
-        attribute['level'] = 6 #choice
+        attribute['Level'] = 6 #choice
 
 
 
@@ -96,14 +96,14 @@ def fight_villain(player):
 
 
     value = random.randint(0,100)
-    if player['level'] == 1:
+    if player['Level'] == 1:
         if value >= 80:
             waist_size_gained = 1 * player["Attributes"][fight_input]
             player["Waist"] += waist_size_gained
             print(r"You've lost! +" + str(waist_size_gained) + "Waist Size")
         else:
             print("Nice! You defeated the ")
-    elif player['level'] == 2:
+    elif player['Level'] == 2:
         if value >= 70:
             waist_size_gained = 2 * player["Attributes"][fight_input]
             player["Waist"] += waist_size_gained
@@ -140,7 +140,7 @@ def fight_attribute_is_valid(player, fight_input):
 
 def main():
     # attributes = {"lick": 1, "bite": 2}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 2, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 2, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     pass
 
 if __name__ == '__main__':
