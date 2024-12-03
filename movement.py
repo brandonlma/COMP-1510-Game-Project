@@ -1,4 +1,6 @@
-def get_user_choice():
+import output_display
+
+def get_user_choice(player):
     """
     Determine desired direction of movement.
 
@@ -17,12 +19,17 @@ def get_user_choice():
     valid_response = True
 
     while valid_response:
-        print("W: North/Up\n"
-              "A: West/Left\n"
-              "S: South/Down\n"
-              "D: East/Right")
-        move = input("Please enter your desired direction (W, A, S, or D): \n").upper()
-        if move in ["W", "A", "S", "D"]:
+        print("+------------------+\n"
+              "| Move Options:    |\n"
+              "+------------------+\n"
+              "| W: North/Up      |\n"
+              "| A: West/Left     |\n"
+              "| S: South/Down    |\n"
+              "| D: East/Right    |\n"
+              "| E: View profile  |\n"
+              "+------------------+")
+        move = input("Please enter your desired move: ").upper()
+        if move in ["W", "A", "S", "D", "E"]:
             valid_response = False
         else:
             print("Please enter a valid direction")
@@ -65,6 +72,9 @@ def validate_move(board, player, direction):
 
     x = int(player['X-Coordinate'])
     y = int(player['Y-Coordinate'])
+
+    if direction == "E":
+        return True
 
     if direction == "W":
         y -= 1
@@ -169,6 +179,8 @@ def increase_floor(player):
     return player['level']
 
 def main():
+    # attributes = {"lick": 1}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     pass
 
 if __name__ == '__main__':

@@ -16,16 +16,21 @@ def intro_image():
 
 
 
-def display_user_stats(player):
+def display_user_stats(player, user_name):
     """
 
     :return:
     """
 
     number = 0;
-    print("\n+--------------------------------------------+\n"
-          "| YOUR INFORMATION:                          |\n"
-          "+----------------------+---------------------+\n"
+    print("\n+--------------------------------------------+")
+
+    name_string = "| " + user_name + "'s INFORMATION:"
+    while len(name_string) < 45:
+        name_string = name_string + " "
+    name_string += "|"
+    print(name_string)
+    print("+----------------------+---------------------+\n"
           "| Current Coordinates: |", player["X-Coordinate"], ",", player["Y-Coordinate"], "              |\n"
           "| Floor:               |", player["level"], "                  |\n"
           "| Health:              |", player["HP"], "                  |\n"
@@ -74,7 +79,7 @@ def describe_current_location(rows, columns, character):
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):
-            temporary_row += "-----"
+            temporary_row += "====="
         print(temporary_row)
         temp = ""
         for x in range(columns):
@@ -85,10 +90,17 @@ def describe_current_location(rows, columns, character):
                 temp += " "
             temp += " |"
         print(temp)
-        print("------------------------------")
+    end_row = ""
+    for num in range(columns):
+        end_row += "====="
+    print(end_row)
+
 
 
 def main():
+    # attributes = {"lick": 1}
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    # describe_current_location(6, 6, player)
     pass
 
 
