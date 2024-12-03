@@ -46,7 +46,7 @@ def validate_move(board, player, direction):
     to step out of the boundaries of the board.
 
     :param board: a dictionary with all coordinates of the grid
-    :param character: a key:value pair containing character's coordinates and health
+    :param player: a key:value pair containing character's coordinates and health
     :param direction: a string with user's desired direction
     :precondition: board is a dictionary with all coordinates of the grid
     :precondition: character's current coordinates are valid
@@ -74,22 +74,22 @@ def validate_move(board, player, direction):
     x = int(player['X-Coordinate'])
     y = int(player['Y-Coordinate'])
 
-    if direction == "E" or "R":
-        return True
-
     if direction == "W":
         y -= 1
     elif direction == "D":
         x += 1
     elif direction == "S":
         y += 1
-    else:
+    elif direction == "A":
         x -= 1
 
     if (y, x) in board:
         return True
     else:
-        return False
+        if direction == "E" or direction == "R":
+            return True
+        else:
+            return False
 
 
 def move_character(player, direction):
@@ -181,6 +181,9 @@ def increase_floor(player):
 def main():
     # attributes = {"lick": 1}
     # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    # direction = "W"
+    # board = {(0,0), (0, 1), (1, 0), (1, 1)}
+    # print(validate_move(board, player, direction))
     pass
 
 if __name__ == '__main__':

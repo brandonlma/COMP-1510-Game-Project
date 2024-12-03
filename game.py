@@ -23,6 +23,7 @@ def game():
         output_display.describe_current_location(row, column, player)
         direction = movement.get_user_choice(player)
         if movement.validate_move(board, player, direction):
+            print(movement.validate_move(board, player, direction))
             if direction == "E":
                 output_display.display_user_stats(player, user_name)
                 time.sleep(5)
@@ -43,7 +44,8 @@ def game():
                     movement.reset_coordinates(player)
                     user_information.attributes_upgrade(player, attributes)
         else:
-            print("You can't go past the board")
+            print("That move would make you go off the board. Try again.")
+            time.sleep(1)
     if user_information.is_alive(player):
         final_game = battle.fight_final_boss(player, user_name)
         if final_game:
