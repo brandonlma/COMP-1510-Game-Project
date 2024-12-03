@@ -21,7 +21,6 @@ def display_user_stats(player, user_name):
 
     :return:
     """
-
     number = 0;
     print("\n+--------------------------------------------+")
 
@@ -32,10 +31,16 @@ def display_user_stats(player, user_name):
     print(name_string)
     print("+----------------------+---------------------+\n"
           "| Current Coordinates: |", player["X-Coordinate"], ",", player["Y-Coordinate"], "              |\n"
-          "| Floor:               |", player["level"], "                  |\n"
-          "| Health:              |", player["HP"], "                  |\n"
-          "| Waist Size:          |", player["Waist"], "                 |\n"
-          "+----------------------+---------------------+")
+          "| Floor:               |", player["Floor"], "                  |\n"
+          "| Level:               |", player["Level"], "                  |")
+    waist_size = player["Waist"]
+    waist_size_to_string = str(waist_size)
+    waist_string = "| Waist Size:          | " + waist_size_to_string
+    while len(waist_string) < 45:
+        waist_string += " "
+    waist_string += "|"
+    print(waist_string)
+    print("+----------------------+---------------------+")
     attributes = player["Attributes"]
     for keys, values in player["Attributes"].items():
         temporary_string = ""
@@ -60,7 +65,7 @@ def display_user_stats(player, user_name):
 
 
 
-def describe_current_location(rows, columns, character):
+def describe_current_location(rows, columns, player):
     """
     Prints the board map.
 
@@ -69,13 +74,13 @@ def describe_current_location(rows, columns, character):
 
     :param rows: an integer
     :param columns: an integer
-    :param character: a dictionary
+    :param player: a dictionary
     :precondition: rows and columns are positive integers greater than 0
-    :precondition: character contains coordinates of current location
+    :precondition: player contains coordinates of current location
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", character["level"], "Current HP:", character["HP"])
+    print("\nCurrent Floor:", player["level"], "Waist Size:", player["Waist"])
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):
@@ -84,7 +89,7 @@ def describe_current_location(rows, columns, character):
         temp = ""
         for x in range(columns):
             temp += "| "
-            if character["X-Coordinate"] == x and character["Y-Coordinate"] == y:
+            if player["X-Coordinate"] == x and player["Y-Coordinate"] == y:
                 temp += "O"
             else:
                 temp += " "
@@ -98,10 +103,11 @@ def describe_current_location(rows, columns, character):
 
 
 def main():
-    # attributes = {"lick": 1}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
-    # describe_current_location(6, 6, player)
-    pass
+    user_name = "Bob"
+    attributes = {"lick": 1}
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Level': 1, 'Attributes': attributes}
+
+    display_user_stats(player, user_name)
 
 
 if __name__ == '__main__':

@@ -6,7 +6,7 @@ def make_character(attributes):
 
     :return: a dictionary containing keys and initialized values
     """
-    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'Attributes': attributes}
 
 
 def make_board(rows, columns):
@@ -46,29 +46,19 @@ def start_story(user_name):
     print('4 years go by, now your making close to a MILLION dollars a year.\n'
           'You\'ve just got married to the love of your life,\n'
           'and you just bought a new home in a gated community with a massive backyard pool. \n')
-    time.sleep(5)
+    time.sleep(7)
     print('LIFE\n')
     time.sleep(1)
     print('IS\n')
     time.sleep(1)
     print('GREAT\n')
-    time.sleep(0.75)
+    time.sleep(2)
     print('.....\n')
-    time.sleep(0.75)
+    time.sleep(2)
     print('.....\n')
-    time.sleep(0.75)
+    time.sleep(2)
     print('.....\n')
-    time.sleep(0.75)
-    print('.....\n')
-    time.sleep(0.75)
-    print('.....\n')
-    time.sleep(0.75)
-    print('.....\n')
-    time.sleep(0.75)
-    print('.....\n')
-    time.sleep(0.75)
-    print('.....\n')
-    time.sleep(1)
+    time.sleep(2)
     print('25 years have gone by now.\n')
     time.sleep(4)
     print('You\'ve lost custody of all 3 of your kids after going through a nasty divorce.')
@@ -80,10 +70,32 @@ def start_story(user_name):
     print('And most importantly, you\'ve eaten your sadness away and gained 300lbs.')
     time.sleep(3)
     print('Your waist size is now 55 and none of your pants fit you anymore.\n')
+    time.sleep(3)
+    print('.....\n')
     time.sleep(2)
-    print('Your objective is to lose enough weight to be approved a surgical gastric bypass procedure.\n'
-          'Drop your waist size to 40 before Father Time catches up to you.\n')
+    print('.....\n')
+    time.sleep(2)
+    print('Which is why you are now at the World Famous Hospital for Liposuction.\n')
     time.sleep(5)
+    objective()
+    time.sleep(15)
+    print('Good luck!')
+
+
+def objective():
+    print('+-------------------------------------------------------+\n'
+          '| YOUR OBJECTIVE:                                       |\n'
+          '+-------------------------------------------------------+\n'
+          '| 1. Reach the 4th level of the hospital without        |\n'
+          '|    getting too fat.                                   |\n'
+          '| 2. Resist the temptation of junk food by              |\n'
+          '|    defeating monsters.                                |\n'
+          '| 3. Defeat monsters to level up and achieve better     |\n'
+          '|    attack abilities.                                  |\n'
+          '| 4. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 0!       |\n'
+          '+-------------------------------------------------------+\n'
+          '| TIP: Level up to lower your waist size by 20!         |\n'
+          '+-------------------------------------------------------+')
 
 
 def main():

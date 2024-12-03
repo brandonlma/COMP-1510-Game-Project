@@ -54,19 +54,19 @@ def validate_move(board, player, direction):
     :return: a boolean
 
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 1
-    >>> validate_move(board, character, direction)
+    >>> validate_move(board, player, direction)
     True
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 2
-    >>> validate_move(board, character, direction)
+    >>> validate_move(board, player, direction)
     True
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 3
-    >>> validate_move(board, character, direction)
+    >>> validate_move(board, player, direction)
     False
     """
 
@@ -103,17 +103,17 @@ def move_character(player, direction):
     :postcondition: accurately move character
     :return: a dictionary
 
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 1
-    >>> move_character(character, direction)
+    >>> move_character(player, direction)
     {'Y-coordinate': 1, 'X-coordinate': 0, 'Current HP': 5}
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
     >>> direction = 2
-    >>> move_character(character, direction)
+    >>> move_character(player, direction)
     {'Y-coordinate': 0, 'X-coordinate': 1, 'Current HP': 5}
-    >>> character = {"Y-coordinate": 4, "X-coordinate": 3, "Current HP": 5}
+    >>> player = {"Y-coordinate": 4, "X-coordinate": 3, "Current HP": 5}
     >>> direction = 2
-    >>> move_character(character, direction)
+    >>> move_character(player, direction)
     {'Y-coordinate': 4, 'X-coordinate': 4, 'Current HP': 5}
     """
     x = int(player['X-Coordinate'])
@@ -140,25 +140,25 @@ def check_if_level_attained(rows, columns, player):
 
     :param rows: an integer for the number of rows
     :param columns: an integer for the number of columns
-    :param character: a key:value pair containing character's current coordinates and health
+    :param player: a key:value pair containing character's current coordinates and health
     :precondition: board is a dictionary with all coordinates of the grid
     :postcondition: correctly checks if character has reached goal
     :return: a boolean
 
     >>> rows = 5
     >>> columns = 5
-    >>> character = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> player = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
+    >>> check_if_level_attained(rows, columns, player)
     True
     >>> rows = 5
     >>> columns = 5
-    >>> character = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> player = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
+    >>> check_if_level_attained(rows, columns, player)
     False
     >>> rows = 5
     >>> columns = 5
-    >>> character = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, character)
+    >>> player = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
+    >>> check_if_level_attained(rows, columns, player)
     False
     """
     x = player['X-Coordinate']

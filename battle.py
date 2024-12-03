@@ -23,9 +23,9 @@ from sys import excepthook
 #         return "yourself"
 
 
-def fight_final_boss(character, user_name):
-    character['HP'] = 2
-    while character['HP'] > 0:
+def fight_final_boss(player, user_name):
+    player['HP'] = 2
+    while player['HP'] > 0:
         input_one = input(f"Tell me {user_name}, what did you eat for breakfast this morning? Lying is acceptable,"
                           f"just make sure I don't catch you.\n")
         input_two = int(input(f'Now tell me, is what you ate for breakfast True or False\n'
@@ -39,7 +39,7 @@ def fight_final_boss(character, user_name):
             print("FALSE")
 
         if random_num == input_two:
-            character['hp'] -= 1
+            player['hp'] -= 1
             if random == 1:
                 print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY")
             else:
@@ -51,11 +51,11 @@ def fight_final_boss(character, user_name):
     return False
 
 
-def check_for_villain(character):
+def check_for_villain(player):
 
-    if character['level'] == 1:
+    if player['level'] == 1:
         random_num = random.randint(0,4)
-    elif character['level'] == 2:
+    elif player['level'] == 2:
         random_num = random.randint(0,3)
     else:
         random_num = random.randint(0,2)
@@ -67,11 +67,11 @@ def check_for_villain(character):
     else:
         return False
 
-def attributes_upgrade(character, attribute):
+def attributes_upgrade(player, attribute):
 
-    if character['level'] == 1:
+    if player['level'] == 1:
         attribute['punch'] = 2
-    elif character['level'] == 2:
+    elif player['level'] == 2:
         attribute['lick'] = 3
     else:
         attribute['level'] = 6 #choice
