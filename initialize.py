@@ -38,7 +38,7 @@ def start_story(user_name):
     print('\nHi '+ user_name + ', welcome to the game of life! Lets begin!\n')
     time.sleep(3)
     print('You are 25 years old, fresh out of college hot shot. You just got a job\n'
-        'at some big law firm making qauter million dollars a year. \n')
+        'at some big law firm making a quarter million dollars a year. \n')
     time.sleep(5)
     print('A year goes by and now your making over 300k a year now, and you\'ve just \n'
         'started a relationship with your smoking hot partner.\n')
