@@ -8,8 +8,8 @@ def attributes_upgrade(character, attributes):
     # else:
     #     attribute['level'] = choice
 
-def is_alive(character):
-    if character['HP'] > 0:
+def is_alive(player):
+    if player['HP'] > 0:
         return True
     else:
         return False

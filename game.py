@@ -21,7 +21,7 @@ def game():
     time.sleep(3)
     output_display.describe_current_location(row, column, player)
     time.sleep(3)
-    while user_information.is_alive and player['level'] <= 3:
+    while user_information.is_alive(player) and player['level'] <= 3:
         direction = movement.get_user_choice(player)
         if movement.validate_move(board, player, direction):
             if direction == "E":
