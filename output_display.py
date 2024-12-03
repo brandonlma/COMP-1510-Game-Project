@@ -32,7 +32,8 @@ def display_user_stats(player, user_name):
     print("+----------------------+---------------------+\n"
           "| Current Coordinates: |", player["X-Coordinate"], ",", player["Y-Coordinate"], "              |\n"
           "| Floor:               |", player["Floor"], "                  |\n"
-          "| Level:               |", player["Level"], "                  |")
+          "| Level:               |", player["Level"], "                  |\n"
+          "| Kills:               |", player["Kills"], "                  |")
     waist_size = player["Waist"]
     waist_size_to_string = str(waist_size)
     waist_string = "| Waist Size:          | " + waist_size_to_string
