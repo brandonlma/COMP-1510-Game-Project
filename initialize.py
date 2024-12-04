@@ -83,7 +83,7 @@ def start_story(user_name):
 
 
 def objective():
-    print('+-------------------------------------------------------+\n'
+    return('+-------------------------------------------------------+\n'
           '| YOUR OBJECTIVE:                                       |\n'
           '+-------------------------------------------------------+\n'
           '| 1. Reach the 4th level of the hospital without        |\n'
