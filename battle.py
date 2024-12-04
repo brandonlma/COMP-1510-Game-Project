@@ -105,7 +105,7 @@ def fight_villain(player, enemy):
                 for ability, damage in attribute.items():
                     number = str(integer)
                     damage = str(attribute[ability])
-                    attribute_string = "| " + number + ". "
+                    attribute_string = "| " + number + ": "
                     attribute_string += ability + " = +/- " + damage + " DMG"
                     while len(attribute_string) < 33:
                         attribute_string += " "
@@ -123,11 +123,11 @@ def fight_villain(player, enemy):
             #         for ability, damage in attribute.items():
             #             damage = str(attribute[ability])
 
-            fight_input = input("Enter your desired attack: ")
+            fight_input = input("Enter your desired attack (e.g. 1): ")
             attribute_is_valid = fight_attribute_is_valid(player, fight_input)
-        if not attribute_is_valid:
-            print('Not a valid attack. Please enter a valid attribute.\n')
-            time.sleep(1)
+            if not attribute_is_valid:
+                print('Not a valid attack. Please enter a valid attack.\n')
+                time.sleep(1)
         attack_chosen = list_of_attributes[int(fight_input) - 1]
         for integer, attribute in attack_chosen.items():
             for key, value in attribute.items():
@@ -161,7 +161,7 @@ def fight_villain(player, enemy):
         time.sleep(2)
 
     if enemy_health <= 0:
-        print(r"You've successfully defeated " + enemy_name + "!")
+        print("\nYou've successfully defeated " + enemy_name + "!")
         player['Kills'] += 1
         time.sleep(2)
 
