@@ -1,3 +1,14 @@
+def valid_name(user_name):
+    """
+    Determines if the name is valid.
+    :return:
+    """
+    if len(user_name) < 30:
+        return True
+    else:
+        return False
+
+
 def attributes_upgrade(player, attributes):
     """
     Upgrades player's attributes when reaching a new level.
@@ -11,12 +22,16 @@ def attributes_upgrade(player, attributes):
     """
     if player['Level'] == 2:
         attributes.append({2: {"bite": 2}})
+        return "You've gained the ability to bite!"
     if player['Level'] == 3:
-        attributes.append({2: {"chomp": 4}})
+        attributes.append({3: {"chomp": 4}})
+        return "You've gained the ability to chomp!"
     if player['Level'] == 4:
-        attributes.append({3: {"devour": 6}})
+        attributes.append({4: {"devour": 6}})
+        return "You've gained the ability to devour!"
     if player['Level'] == 5:
-        attributes.append({3: {"FEAST": 10}})
+        attributes.append({5: {"FEAST": 10}})
+        return "You've gained the ability to FEAST!"
 
 
 
@@ -29,7 +44,7 @@ def is_alive(player):
     :precondition: accurately determines if player is alive
     :return: a Boolean
     """
-    if player['Waist'] < 100:
+    if 30 <= player['Waist'] <= 100:
         return True
     else:
         return False
