@@ -14,8 +14,15 @@ def game():
     board = initialize.make_board(row, column)
     initialize.make_board(row, column)
     attributes = [{1: {'lick': 1}}]
-    user_name = output_display.intro_image()
-    # initialize.start_story(user_name)
+    output_display.intro_image()
+    user_name = input("Hello! Welcome to Lose Your Weight!\n"
+                 "To start the game, please enter your name: ")
+    valid_name = False
+    while not valid_name:
+        valid_name = user_information.valid_name(user_name)
+        if not valid_name:
+            user_name = input("\nName is too long. Please input a name less than 30 characters: ")
+    initialize.start_story(user_name)
     player = initialize.make_character(attributes)
     output_display.display_user_stats(player, user_name)
     time.sleep(2)
@@ -26,9 +33,9 @@ def game():
             movement.validate_move(board, player, direction)
             if direction == "E":
                 output_display.display_user_stats(player, user_name)
-                time.sleep(5)
+                time.sleep(3)
             elif direction == "R":
-                initialize.objective()
+                print(initialize.objective())
                 time.sleep(5)
             else:
                 movement.move_character(player, direction)
@@ -38,10 +45,9 @@ def game():
                     battle.fight_villain(player, enemy)
                     if player['Kills'] % 3 == 0 and player['Kills'] != 0:
                         user_information.level_upgrade(player)
-                        time.sleep(2)
                         if player['Level'] <= 3:
-                            user_information.attributes_upgrade(player, attributes)
-                            time.sleep(2)
+                            print(user_information.attributes_upgrade(player, attributes))
+                        time.sleep(2)
                 if movement.check_if_floor_attained(row, column, player):
                     movement.increase_floor(player)
                     movement.reset_coordinates(player)
@@ -49,13 +55,26 @@ def game():
             print("That move would make you go off the board. Try again.")
             time.sleep(1)
     if user_information.is_alive(player):
-        final_game = battle.fight_final_boss(player, user_name)
+        battle.final_boss_story(user_name)
+        final_game = battle.fight_final_boss(player)
         if final_game:
             print("Congratulations! You won LIPOSUCTION!!")
         else:
-            print("You lost. Have fun love handles")
+            print("You lost. You don't deserve the liposuction.\n")
+            time.sleep(2)
+            print("Surgical procedure DENIED!")
     else:
-        print("You lost. Have fun love handles")
+        if player['Waist'] >= 100:
+            print("You lost. You got way too fat.\n")
+            time.sleep(2)
+            print("Rest in peace.")
+        else:
+            print("WHAT??? YOU WON WITHOUT REACHING THE END GOAL?\n")
+            time.sleep(2)
+            print("You're too skinny now! You don't need liposuction anymore!\n")
+            time.sleep(2)
+            print("Congrats... I guess we can't get money from your surgery now.")
+
 
 
 def main():
