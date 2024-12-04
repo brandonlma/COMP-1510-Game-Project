@@ -104,6 +104,7 @@ def describe_current_location(rows, columns, player):
     for num in range(columns):
         end_row += "====="
     print(end_row)
+    print("'O': Your location '!': Stairs to reach next floor")
 
 
 
