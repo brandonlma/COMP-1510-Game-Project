@@ -1,12 +1,13 @@
-def attributes_upgrade(character, attributes):
-    if character['Level'] == 2:
-        attributes['bite'] = 2
-    if character['Level'] == 3:
-        attributes['chomp'] = 4
-    if character['Level'] == 4:
-        attributes['devour'] == 10
-    # else:
-    #     attribute['level'] = choice
+def attributes_upgrade(player, attributes):
+    if player['Level'] == 2:
+        attributes.append({2: {"bite": 2}})
+    if player['Level'] == 3:
+        attributes.append({2: {"chomp": 4}})
+    if player['Level'] == 4:
+        attributes.append({3: {"devour": 6}})
+    if player['Level'] == 5:
+        attributes.append({3: {"FEAST": 10}})
+
 
 
 def is_alive(player):
@@ -16,15 +17,26 @@ def is_alive(player):
         return False
 
 def level_upgrade(player):
-    print("\nYou've successfully levelled up! -10 Waist size!\n")
-    player['Level'] += 1
-    player['Waist'] -= 10
+    if player['Level'] < 5:
+        print("\nYou've successfully levelled up! -10 Waist size!")
+        player['Level'] += 1
+        player['Waist'] -= 10
 
 
 def main():
-    # attributes = {"lick": 1}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
-    pass
+    attributes = [{1: {"lick": 1}}]
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
+    attributes_upgrade(player, attributes)
+    print(player)
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 3, 'Attributes': attributes}
+    attributes_upgrade(player, attributes)
+    print(player)
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 4, 'Attributes': attributes}
+    attributes_upgrade(player, attributes)
+    print(player)
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 5, 'Attributes': attributes}
+    attributes_upgrade(player, attributes)
+    print(player)
 
 
 if __name__ == '__main__':

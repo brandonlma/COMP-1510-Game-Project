@@ -93,7 +93,7 @@ def objective():
           '|    defeating monsters.                                |\n'
           '| 3. Defeat monsters to level up and achieve better     |\n'
           '|    attack abilities.                                  |\n'
-          '| 4. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 0!       |\n'
+          '| 4. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 30!      |\n'
           '+-------------------------------------------------------+\n'
           '| TIP: Level up to lower your waist size by 10!         |\n'
           '+-------------------------------------------------------+')

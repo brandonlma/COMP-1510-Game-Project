@@ -59,16 +59,16 @@ def fight_final_boss(player, user_name):
 
 def check_for_villain(player):
 
-    if player['Level'] == 1:
+    if player['Floor'] == 1:
+        random_num = random.randint(1,5)
+    elif player['Floor'] == 2:
         random_num = random.randint(1,4)
-    elif player['Level'] == 2:
-        random_num = random.randint(1,3)
     else:
-        random_num = random.randint(1,2)
+        random_num = random.randint(1,3)
 
     print(random_num)
 
-    if random_num == 1:
+    if random_num <= 2:
         return True
     else:
         return False
@@ -79,7 +79,7 @@ def fight_villain(player, enemy):
     enemy_health = enemy[1]
     enemy_food = enemy[2]
 
-    attributes = player['Attributes']
+    list_of_attributes = player['Attributes']
     print(f"\nYou have encountered " + enemy_name + " who wants to feed you " + enemy_food + ".\n"
            "Avoid the temptation!")
 
@@ -99,21 +99,43 @@ def fight_villain(player, enemy):
         waist_string += "|"
         print(waist_string)
         print("+--------------------------------+")
+        print("| Attack Attributes:             |")
+        for attributes in list_of_attributes:
+            for integer, attribute in attributes.items():
+                for ability, damage in attribute.items():
+                    number = str(integer)
+                    damage = str(attribute[ability])
+                    attribute_string = "| " + number + ". "
+                    attribute_string += ability + " = +/- " + damage + " DMG"
+                    while len(attribute_string) < 33:
+                        attribute_string += " "
+                    attribute_string += "|"
+                    print(attribute_string)
+        print("+--------------------------------+")
 
 
         attribute_is_valid = False
+        damage = 0
+        fight_input = 0
         while not attribute_is_valid:
-            for keys, values in attributes.items():
-                damage = str(attributes[keys])
-                print(keys + " = +/- " + damage + " DMG")
+            # for attributes in list_of_attributes:
+            #     for integer, attribute in attributes.items():
+            #         for ability, damage in attribute.items():
+            #             damage = str(attribute[ability])
+
             fight_input = input("Enter your desired attack: ")
             attribute_is_valid = fight_attribute_is_valid(player, fight_input)
-            if not attribute_is_valid:
-                print('Not a valid attack. Please enter a valid attribute.\n')
+        if not attribute_is_valid:
+            print('Not a valid attack. Please enter a valid attribute.\n')
             time.sleep(1)
+        attack_chosen = list_of_attributes[int(fight_input) - 1]
+        for integer, attribute in attack_chosen.items():
+            for key, value in attribute.items():
+                damage += value
+
         value = random.randint(0, 100)
         if player['Floor'] == 1:
-            waist_size_gained = 1 * player["Attributes"][fight_input]
+            waist_size_gained = 1 * damage
             if value >= 80:
                 player["Waist"] += waist_size_gained
                 print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
@@ -121,7 +143,7 @@ def fight_villain(player, enemy):
                 enemy_health -= waist_size_gained
                 print(r"Nice! You've damaged " + enemy_name + " for " + str(waist_size_gained))
         elif player['Floor'] == 2:
-            waist_size_gained = 2 * player["Attributes"][fight_input]
+            waist_size_gained = 2 * damage
             if value >= 66:
                 player["Waist"] += waist_size_gained
                 print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
@@ -129,7 +151,7 @@ def fight_villain(player, enemy):
                 enemy_health -= waist_size_gained
                 print(r"Nice! You've damaged " + enemy_name + " for " + str(waist_size_gained))
         else:
-            waist_size_gained = 3 * player["Attributes"][fight_input]
+            waist_size_gained = 3 * damage
             if value >= 50:
                 player["Waist"] += waist_size_gained
                 print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
@@ -145,17 +167,21 @@ def fight_villain(player, enemy):
 
 
 def fight_attribute_is_valid(player, fight_input):
-    if fight_input in player['Attributes']:
+    inputs = []
+    for attributes in player['Attributes']:
+        for integer, attribute in attributes.items():
+            inputs.append(str(integer))
+    if fight_input in inputs:
         return True
     else:
         return False
 
 
 def main():
-    # attributes = {"lick": 1, "bite": 2}
-    # enemy = ["Ronald McDonald", 8, "chicken nuggets"]
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'Floor': 1, 'Attributes': attributes}
-    # fight_villain(player, enemy)
+    attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}]
+    enemy = ["Ronald McDonald", 8, "chicken nuggets"]
+    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'Floor': 1, 'Attributes': attributes}
+    fight_villain(player, enemy)
     pass
 
 if __name__ == '__main__':

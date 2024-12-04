@@ -13,7 +13,7 @@ def game():
     column = 6
     board = initialize.make_board(row, column)
     initialize.make_board(row, column)
-    attributes = {'lick': 1}
+    attributes = [{1: {'lick': 1}}]
     user_name = output_display.intro_image()
     # initialize.start_story(user_name)
     player = initialize.make_character(attributes)
@@ -23,7 +23,7 @@ def game():
         output_display.describe_current_location(row, column, player)
         direction = movement.get_user_choice(player)
         if movement.validate_move(board, player, direction):
-            print(movement.validate_move(board, player, direction))
+            movement.validate_move(board, player, direction)
             if direction == "E":
                 output_display.display_user_stats(player, user_name)
                 time.sleep(5)
@@ -38,11 +38,12 @@ def game():
                     battle.fight_villain(player, enemy)
                     if player['Kills'] % 5 == 0 and player['Kills'] != 0:
                         user_information.level_upgrade(player)
-                movement.check_if_level_attained(row, column, player)
-                if movement.check_if_level_attained(row, column, player):
+                        time.sleep(2)
+                        user_information.attributes_upgrade(player, attributes)
+                        time.sleep(2)
+                if movement.check_if_floor_attained(row, column, player):
                     movement.increase_floor(player)
                     movement.reset_coordinates(player)
-                    user_information.attributes_upgrade(player, attributes)
         else:
             print("That move would make you go off the board. Try again.")
             time.sleep(1)
@@ -52,7 +53,6 @@ def game():
             print("Congratulations! You won LIPOSUCTION!!")
         else:
             print("You lost. Have fun love handles")
-            player['HP'] = 0
     else:
         print("You lost. Have fun love handles")
 

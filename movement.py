@@ -133,7 +133,7 @@ def move_character(player, direction):
     player['Y-Coordinate'] = y
 
 
-def check_if_level_attained(rows, columns, player):
+def check_if_floor_attained(rows, columns, player):
     """
     Determine if character has reached goal.
 

@@ -42,23 +42,25 @@ def display_user_stats(player, user_name):
     waist_string += "|"
     print(waist_string)
     print("+----------------------+---------------------+")
-    attributes = player["Attributes"]
-    for keys, values in player["Attributes"].items():
-        temporary_string = ""
-        if number == 0:
-            temporary_string += "| Attack Abilities:    | "
-            number += 1
-        else:
-            temporary_string += "|                      | "
-        damage = str(attributes[keys])
-        temporary_string += keys
-        while len(temporary_string) < 35:
-            temporary_string += " "
-        temporary_string += " = " + damage + " DMG"
-        while len(temporary_string) < 45:
-            temporary_string += " "
-        temporary_string += "|"
-        print(temporary_string)
+    list_of_attributes = player["Attributes"]
+    for attributes in list_of_attributes:
+        for integer, attribute in attributes.items():
+            for ability, damage in attribute.items():
+                temporary_string = ""
+                if number == 0:
+                    temporary_string += "| Attack Abilities:    | "
+                    number += 1
+                else:
+                    temporary_string += "|                      | "
+                damage = str(attribute[ability])
+                temporary_string += ability
+                while len(temporary_string) < 35:
+                    temporary_string += " "
+                temporary_string += " = " + damage + " DMG"
+                while len(temporary_string) < 45:
+                    temporary_string += " "
+                temporary_string += "|"
+                print(temporary_string)
     print("+----------------------+---------------------+")
 
 
@@ -90,7 +92,9 @@ def describe_current_location(rows, columns, player):
         temp = ""
         for x in range(columns):
             temp += "| "
-            if player["X-Coordinate"] == x and player["Y-Coordinate"] == y:
+            if x == columns - 1 and y == rows - 1:
+                temp += "!"
+            elif player["X-Coordinate"] == x and player["Y-Coordinate"] == y:
                 temp += "O"
             else:
                 temp += " "
@@ -104,11 +108,12 @@ def describe_current_location(rows, columns, player):
 
 
 def main():
-    user_name = "Bob"
-    attributes = {"lick": 1}
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Level': 1, 'Attributes': attributes}
-
-    display_user_stats(player, user_name)
+    # user_name = "Bob"
+    # attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    #
+    # display_user_stats(player, user_name)
+    pass
 
 
 if __name__ == '__main__':
