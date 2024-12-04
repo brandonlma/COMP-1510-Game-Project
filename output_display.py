@@ -68,7 +68,7 @@ def display_user_stats(player, user_name):
 
 
 
-def describe_current_location(rows, columns, player):
+def describe_current_location(player):
     """
     Prints the board map.
 
@@ -83,7 +83,9 @@ def describe_current_location(rows, columns, player):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", player["Level"], "Waist Size:", player["Waist"])
+    return "\nCurrent Floor:", player["Floor"], "Waist Size:", player["Waist"]
+
+def print_map_location(rows, columns, player):
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):
