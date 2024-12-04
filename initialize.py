@@ -38,7 +38,7 @@ def start_story(user_name):
     :return: None
     """
 
-    print('\nHi '+ user_name + '! Welcome to the game of life! Lets begin!\n')
+    print('\nHi '+ user_name + "! Welcome to the game of life! Let's begin!\n")
     time.sleep(3)
     print('You are 25 years old, fresh out of college hot shot. You just got a job\n'
         'at some big law firm making a quarter million dollars a year. \n')
@@ -80,7 +80,7 @@ def start_story(user_name):
     time.sleep(2)
     print('Which is why you are now at the World Famous Hospital for Liposuction.\n')
     time.sleep(5)
-    objective()
+    print(objective())
     time.sleep(15)
     print('Good luck!')
 
