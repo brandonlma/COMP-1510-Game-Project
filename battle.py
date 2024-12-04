@@ -5,6 +5,14 @@ from sys import excepthook
 
 
 def random_enemy(player):
+    """
+    Determines the enemy to be faced.
+
+    :param player: a dictionary
+    :precondition: player is a dictionary that contains a 'Floor' key
+    :postcondition: accurately determines which enemy is to be faced
+    :return: a list containing a name, health, and it's favourite food
+    """
     value = random.randint(1,3)
     if player['Floor'] == 1:
         if value == 1:
@@ -30,6 +38,13 @@ def random_enemy(player):
 
 
 def fight_final_boss(player, user_name):
+    """
+    Runs the fighting action against the final boss.
+    :param player: a dictionary
+    :param user_name: a string
+    :precondition: player is a dictionary that contains
+    :return:
+    """
     player['HP'] = 2
     while player['HP'] > 0:
         input_one = input(f"Tell me {user_name}, what did you eat for breakfast this morning? Lying is acceptable,"
@@ -58,6 +73,14 @@ def fight_final_boss(player, user_name):
 
 
 def check_for_villain(player):
+    """
+    Checks whether there is a villain.
+
+    :param player: a dictionary
+    :precondition: player is a dictionary that contains a 'Floor' key with a value
+    :postcondition: randomly determines if there is an enemy based on a random number
+    :return: a Boolean
+    """
 
     if player['Floor'] == 1:
         random_num = random.randint(1,5)
@@ -66,8 +89,6 @@ def check_for_villain(player):
     else:
         random_num = random.randint(1,3)
 
-    print(random_num)
-
     if random_num <= 2:
         return True
     else:
@@ -75,6 +96,16 @@ def check_for_villain(player):
 
 
 def fight_villain(player, enemy):
+    """
+    Runs the fight action against the villain.
+
+    :param player: a dictionary
+    :param enemy: a list
+    :precondition: player is a dictionary that contains all required keys and values
+    :precondition: enemy is a list containing name, health, and favourite food
+    :postcondition: accurately updates health of player and enemy throughout battle
+    :return: None
+    """
     enemy_name = enemy[0]
     enemy_health = enemy[1]
     enemy_food = enemy[2]
@@ -164,6 +195,30 @@ def fight_villain(player, enemy):
 
 
 def fight_attribute_is_valid(player, fight_input):
+    """
+    Determines if the inputted attack value is valid.
+
+    :param player: a dictionary
+    :param fight_input: a string
+    :precondition: player is a dictionary that contains a value that holds all possible attacks
+    :postcondition: accurately determines if fight_input is in the allowed inputs
+    :return: a boolean
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> fight_input = '1'
+    >>> fight_attribute_is_valid(player, fight_input)
+    True
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> fight_input = '2'
+    >>> fight_attribute_is_valid(player, fight_input)
+    False
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> fight_input = 'B'
+    >>> fight_attribute_is_valid(player, fight_input)
+    False
+    """
     inputs = []
     for attributes in player['Attributes']:
         for integer, attribute in attributes.items():
