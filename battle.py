@@ -1,7 +1,6 @@
 import random
 import time
 import user_information
-from sys import excepthook
 
 
 def random_enemy(player):
@@ -37,22 +36,66 @@ def random_enemy(player):
             return ["Yourself", 9, "self-doubt"]
 
 
-def fight_final_boss(player, user_name):
+def final_boss_story(user_name):
+    """
+    Outputs the final boss storyline.
+    """
+    print("You've successfully reached Floor 4!\n")
+    time.sleep(2)
+    print("You must now have a consultation with Dr.Fat to get approved liposuction surgery.\n")
+    time.sleep(3)
+    print("stomp~ stomp~ the ground shakes beneath you\n")
+    time.sleep(3)
+    print("stomp~ stomp~ he's getting closer\n")
+    time.sleep(3)
+    print("~BOOM~ the door aggressively swings open\n")
+    time.sleep(3)
+    print("""                                                                                           
+                                              ░░░░░░                                                
+                                             ░▓▓▓▓▓▓▓▒░                                             
+                                             ░░▒░▒▒░▓▓▓                                             
+                                             ░░░░░░░▒▒▒                                             
+                                            ░▒▒░░░░▓▓▓░░                                            
+                                             ░▓▓▓▓▓▓▒░░▒▒▒▒▒░░                                      
+                                       ░░░▒░░░░░░░░░▒▒▒▒▒▒▒▒▒▒▒░░░                                  
+                                      ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░                                 
+                                    ░░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░▒░░░░░░░                                
+                                   ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░                                
+                                  ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░░                                
+                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░░                                
+                                ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░                                
+                                ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░                                 
+                                ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░░░                                  
+                                 ░▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒░░░░░▒░░                                  
+                                  ▒▓▒▒▒▒▒▒▒▒▒▒▒▒▓▓▓▓▓▓▓▓▓▓▒░░▒▓▓░                                   
+                                  ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒░                                   
+                                  ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░                                    
+                                   ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░                                     
+                                    ▒▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░                                     
+                                    ░▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░                                      
+                                     ▒▓▓▓▓▓▓▓▓▓░░▒▓▓▓▓▓▓▓▓▓▓▓░                                      
+                                     ░▓▓▓▓▓▓▓▓▒░  ░▒▓▓▓▓▓▓▓▓▓░                                      
+                                      ▒▓▓▓▓▓▓▓░     ░▓▓▓▓▓▓▓░░                                      
+                                      ░▓▓▓▓▓▓░       ▒▓▓▓▓▓▓                                        
+                               ░░░░░░▓██████▓░░░░░░▓▓██████▓░░░░░░░░""")
+    print(f"Dr.Fat: 'Hello {user_name}. I'm going to check whether you've been good or bad on your diet.'\n")
+    time.sleep(3)
+
+
+def fight_final_boss():
     """
     Runs the fighting action against the final boss.
-    :param player: a dictionary
-    :param user_name: a string
-    :precondition: player is a dictionary that contains
+
     :return:
     """
-    player['HP'] = 2
-    while player['HP'] > 0:
-        input_one = input(f"Tell me {user_name}, what did you eat for breakfast this morning? Lying is acceptable,"
+    HP = 2
+    while HP > 0:
+        input_one = input(f"Tell me, what did you eat for breakfast this morning? Lying is acceptable,"
                           f"just make sure I don't catch you.\n")
-        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False\n'
-                          f'Enter "1" for True or "0" for False:\n'))
+        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False?\n'
+                          f'(Enter "1" for True or "0" for False)\n'))
         random_num = random.randint(1,3)
-        print("Hmmmmm, I'm gonna take a guess and say\n...........")
+        print("Hmm, I'm gonna take a guess and say\n...........")
         time.sleep(2)
         if random_num == 1:
             print("TRUE")
@@ -60,14 +103,14 @@ def fight_final_boss(player, user_name):
             print("FALSE")
 
         if random_num == input_two:
-            player['hp'] -= 1
+            HP -= 1
             if random == 1:
-                print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY")
+                print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY!")
             else:
-                print("HAHAHAHAHA I KNEW YOU WERE LYING FATTY")
+                print("HAHAHAHAHAHAHA I KNEW YOU WERE LYING FATTY!")
 
         else:
-            print("Wow fatty, you fooled me, I guess you can have Lipo")
+            print("Wow fatty, you fooled me. I guess you can have Lipo. :(")
             return True
     return False
 
@@ -95,6 +138,47 @@ def check_for_villain(player):
         return False
 
 
+def fight_villain_story(player, enemy_name, enemy_health, enemy_food):
+    """
+    Prints attack block to display information.
+
+    :param player: a dictionary
+    :param enemy_name: a string
+    :param enemy_health: an integer
+    :param enemy_food: a string
+    :return: None
+    """
+
+    list_of_attributes = player['Attributes']
+    print("+--------------------------------+")
+    enemy_string = "| " + enemy_name + " HP: " + str(enemy_health)
+    while len(enemy_string) < 33:
+        enemy_string += " "
+    enemy_string += "|"
+    print(enemy_string)
+    print("+--------------------------------+")
+    waist_size = player["Waist"]
+    waist_size_to_string = str(waist_size)
+    waist_string = "| Waist Size: " + waist_size_to_string
+    while len(waist_string) < 33:
+        waist_string += " "
+    waist_string += "|"
+    print(waist_string)
+    print("+--------------------------------+")
+    print("| Attack Attributes:             |")
+    for attributes in list_of_attributes:
+        for integer, attribute in attributes.items():
+            for ability, damage in attribute.items():
+                number = str(integer)
+                damage = str(attribute[ability])
+                attribute_string = "| " + number + ": "
+                attribute_string += ability + " = +/- " + damage + " DMG"
+                while len(attribute_string) < 33:
+                    attribute_string += " "
+                attribute_string += "|"
+                print(attribute_string)
+    print("+--------------------------------+")
+
 def fight_villain(player, enemy):
     """
     Runs the fight action against the villain.
@@ -109,42 +193,12 @@ def fight_villain(player, enemy):
     enemy_name = enemy[0]
     enemy_health = enemy[1]
     enemy_food = enemy[2]
-
     list_of_attributes = player['Attributes']
+
     print(f"\nYou have encountered " + enemy_name + " who wants to feed you " + enemy_food + ".\n"
            "Avoid the temptation!")
-
     while enemy_health > 0 and user_information.is_alive(player):
-        print("+--------------------------------+")
-        enemy_string = "| " + enemy_name + " HP: " + str(enemy_health)
-        while len(enemy_string) < 33:
-            enemy_string += " "
-        enemy_string += "|"
-        print(enemy_string)
-        print("+--------------------------------+")
-        waist_size = player["Waist"]
-        waist_size_to_string = str(waist_size)
-        waist_string = "| Waist Size: " + waist_size_to_string
-        while len(waist_string) < 33:
-            waist_string += " "
-        waist_string += "|"
-        print(waist_string)
-        print("+--------------------------------+")
-        print("| Attack Attributes:             |")
-        for attributes in list_of_attributes:
-            for integer, attribute in attributes.items():
-                for ability, damage in attribute.items():
-                    number = str(integer)
-                    damage = str(attribute[ability])
-                    attribute_string = "| " + number + ": "
-                    attribute_string += ability + " = +/- " + damage + " DMG"
-                    while len(attribute_string) < 33:
-                        attribute_string += " "
-                    attribute_string += "|"
-                    print(attribute_string)
-        print("+--------------------------------+")
-
-
+        fight_villain_story(player, enemy_name, enemy_health, enemy_food)
         attribute_is_valid = False
         damage = 0
         fight_input = 0
@@ -164,34 +218,45 @@ def fight_villain(player, enemy):
             for key, value in attribute.items():
                 damage += value
 
-        value = random.randint(0, 100)
-        if player['Floor'] == 1:
-            if value >= 75:
-                player["Waist"] += damage
-                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
-            else:
-                enemy_health -= damage
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
-        elif player['Floor'] == 2:
-            if value >= 66:
-                player["Waist"] += damage
-                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
-            else:
-                enemy_health -= damage
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
+        if attack_result(player):
+            player["Waist"] += damage
+            print("\nYou've failed to resist temptation! +" + str(damage) + " Waist Size\n")
         else:
-            if value >= 50:
-                player["Waist"] += damage
-                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
-            else:
-                enemy_health -= damage
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
-        time.sleep(2)
+            enemy_health -= damage
+            print("\nNice! You've damaged " + enemy_name + " for " + str(damage) + "\n")
+        time.sleep(1)
 
     if enemy_health <= 0:
-        print("\nYou've successfully defeated " + enemy_name + "!")
+        print("You've successfully defeated " + enemy_name + "!")
         player['Kills'] += 1
         time.sleep(2)
+
+
+def attack_result(player):
+    """
+    Determines if player has successfully attacked the enemy.
+
+    :param player: a dictionary
+    :precondition: player is a dictionary that contains all required keys and values
+    :postcondition: determines randomly if attack was successful
+    :return: a Boolean
+    """
+    value = random.randint(0, 100)
+    if player['Floor'] == 1:
+        if value >= 75:
+            return True
+        else:
+            return False
+    elif player['Floor'] == 2:
+        if value >= 66:
+            return True
+        else:
+            return False
+    else:
+        if value >= 50:
+            return True
+        else:
+            return False
 
 
 def fight_attribute_is_valid(player, fight_input):
@@ -233,8 +298,8 @@ def main():
     attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}]
     enemy = ["Ronald McDonald", 8, "chicken nuggets"]
     player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'Floor': 1, 'Attributes': attributes}
-    fight_villain(player, enemy)
-    pass
+    user_name = "Bob"
+    fight_final_boss()
 
 if __name__ == '__main__':
     main()
