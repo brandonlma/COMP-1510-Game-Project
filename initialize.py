@@ -35,7 +35,7 @@ def start_story(user_name):
     :return: None
     """
 
-    print('\nHi '+ user_name + ', welcome to the game of life! Lets begin!\n')
+    print('\nHi '+ user_name + '! Welcome to the game of life! Lets begin!\n')
     time.sleep(3)
     print('You are 25 years old, fresh out of college hot shot. You just got a job\n'
         'at some big law firm making a quarter million dollars a year. \n')
@@ -93,7 +93,8 @@ def objective():
           '|    defeating monsters.                                |\n'
           '| 3. Defeat monsters to level up and achieve better     |\n'
           '|    attack abilities.                                  |\n'
-          '| 4. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 30!      |\n'
+          '| 4. Failed attacks makes you gain waist size!          |\n'
+          '| 5. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 30!      |\n'
           '+-------------------------------------------------------+\n'
           '| TIP: Level up to lower your waist size by 10!         |\n'
           '+-------------------------------------------------------+')
