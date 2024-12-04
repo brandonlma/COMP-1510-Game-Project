@@ -36,11 +36,12 @@ def game():
                 if villain:
                     enemy = battle.random_enemy(player)
                     battle.fight_villain(player, enemy)
-                    if player['Kills'] % 5 == 0 and player['Kills'] != 0:
+                    if player['Kills'] % 3 == 0 and player['Kills'] != 0:
                         user_information.level_upgrade(player)
                         time.sleep(2)
-                        user_information.attributes_upgrade(player, attributes)
-                        time.sleep(2)
+                        if player['Level'] <= 3:
+                            user_information.attributes_upgrade(player, attributes)
+                            time.sleep(2)
                 if movement.check_if_floor_attained(row, column, player):
                     movement.increase_floor(player)
                     movement.reset_coordinates(player)
