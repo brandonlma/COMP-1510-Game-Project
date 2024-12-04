@@ -4,7 +4,10 @@ def make_character(attributes):
     """
     Initializes character's position, stats, and attributes.
 
-    :return: a dictionary containing keys and initialized values
+    :param attributes: a list
+    :precondition: attributes contains a list of attribute dictionaries
+    :postcondition: correctly initializes player's information in a dictionary
+    :return: a dictionary
     """
     return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
 
@@ -83,6 +86,11 @@ def start_story(user_name):
 
 
 def objective():
+    """
+    Returns the objectives of game as a string.
+
+    :return: a string
+    """
     return('+-------------------------------------------------------+\n'
           '| YOUR OBJECTIVE:                                       |\n'
           '+-------------------------------------------------------+\n'
