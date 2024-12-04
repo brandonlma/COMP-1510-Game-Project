@@ -1,6 +1,6 @@
 import output_display
 
-def get_user_choice(player):
+def get_user_choice():
     """
     Determine desired direction of movement.
 
@@ -98,7 +98,7 @@ def move_character(player, direction):
 
     A function that moves the character in direction based on user's choice.
 
-    :param character: a dictionary containing character's coordinates
+    :param player: a dictionary containing character's coordinates
     :param direction: an integer correlated to a specific direction
     :precondition: character's current coordinates are valid
     :postcondition: accurately move character
@@ -149,17 +149,17 @@ def check_if_floor_attained(rows, columns, player):
     >>> rows = 5
     >>> columns = 5
     >>> player = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, player)
+    >>> check_if_floor_attained((rows, columns, player)
     True
     >>> rows = 5
     >>> columns = 5
     >>> player = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, player)
+    >>> check_if_floor_attained(rows, columns, player)
     False
     >>> rows = 5
     >>> columns = 5
     >>> player = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_level_attained(rows, columns, player)
+    >>> check_if_floor_attained(rows, columns, player)
     False
     """
     x = player['X-Coordinate']
