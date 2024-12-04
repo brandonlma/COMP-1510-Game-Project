@@ -11,10 +11,6 @@ def intro_image():
           r"    \\/   \/   \/   \/   \/ :                 |", "\n"
           r"     \|______________________;________________|", "\n")
 
-    return input("Hello! Welcome to Lose Your Weight!\n"
-                "To start the game, please enter your name: ")
-
-
 
 def display_user_stats(player, user_name):
     """
