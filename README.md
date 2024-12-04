@@ -1,7 +1,7 @@
 # COMP-1510-202411-Game-Project
 
 ## Your name:
-Brandon Lam
+Brandon Lam and Peter Beretanos
 
 ## Your student number:
 A01365141
