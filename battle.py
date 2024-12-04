@@ -135,29 +135,26 @@ def fight_villain(player, enemy):
 
         value = random.randint(0, 100)
         if player['Floor'] == 1:
-            waist_size_gained = 1 * damage
-            if value >= 80:
-                player["Waist"] += waist_size_gained
-                print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
+            if value >= 75:
+                player["Waist"] += damage
+                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
             else:
-                enemy_health -= waist_size_gained
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(waist_size_gained))
+                enemy_health -= damage
+                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
         elif player['Floor'] == 2:
-            waist_size_gained = 2 * damage
             if value >= 66:
-                player["Waist"] += waist_size_gained
-                print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
+                player["Waist"] += damage
+                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
             else:
-                enemy_health -= waist_size_gained
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(waist_size_gained))
+                enemy_health -= damage
+                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
         else:
-            waist_size_gained = 3 * damage
             if value >= 50:
-                player["Waist"] += waist_size_gained
-                print(r"You've failed to resist temptation! +" + str(waist_size_gained) + " Waist Size")
+                player["Waist"] += damage
+                print(r"You've failed to resist temptation! +" + str(damage) + " Waist Size")
             else:
-                enemy_health -= waist_size_gained
-                print(r"Nice! You've damaged " + enemy_name + " for " + str(waist_size_gained))
+                enemy_health -= damage
+                print(r"Nice! You've damaged " + enemy_name + " for " + str(damage))
         time.sleep(2)
 
     if enemy_health <= 0:
