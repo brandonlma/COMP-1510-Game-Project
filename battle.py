@@ -42,16 +42,24 @@ def final_boss_story(user_name):
 
 
     """
-    print("You've successfully reached Floor 4!\n")
+    print("\nYou've successfully reached the 4th Floor!\n")
     time.sleep(2)
-    print("You must now have a consultation with Dr.Fat to get approved liposuction surgery.\n")
+    print("You must now have a consultation with Dr. Fat to get approved liposuction surgery.\n")
     time.sleep(3)
+    print("Have a seat in this room, Dr. Fat will be with you in a moment.\n")
+    time.sleep(3)
+    print(".....\n")
+    time.sleep(1.5)
+    print(".....\n")
+    time.sleep(1.5)
+    print(".....\n")
+    time.sleep(1.5)
     print("stomp~ stomp~ the ground shakes beneath you\n")
-    time.sleep(3)
+    time.sleep(4)
     print("stomp~ stomp~ he's getting closer\n")
-    time.sleep(3)
-    print("~BOOM~ the door aggressively swings open\n")
-    time.sleep(3)
+    time.sleep(4)
+    print("~ B O O M ~ the door aggressively swings open\n")
+    time.sleep(4)
     print("""                                                                                           
                                               ░░░░░░                                                
                                              ░▓▓▓▓▓▓▓▒░                                             
@@ -80,7 +88,7 @@ def final_boss_story(user_name):
                                       ▒▓▓▓▓▓▓▓░     ░▓▓▓▓▓▓▓░░                                      
                                       ░▓▓▓▓▓▓░       ▒▓▓▓▓▓▓                                        
                                ░░░░░░▓██████▓░░░░░░▓▓██████▓░░░░░░░░""")
-    print(f"Dr.Fat: 'Hello {user_name}. I'm going to check whether you've been good or bad on your diet.'\n")
+    print(f"Dr. Fat: 'Hello {user_name}. I'm going to check whether you've been good or bad on your diet.'\n")
     time.sleep(3)
 
 
@@ -91,13 +99,23 @@ def fight_final_boss():
     :return:
     """
     HP = 2
+    print(f"Tell me, what did you eat for breakfast this morning? Lying is acceptable.\n")
+    time.sleep(2)
+    print("Just make sure I don't catch you. You have 2 chances in total to fool me.\n")
+    time.sleep(2)
     while HP > 0:
-        input_one = input(f"Tell me, what did you eat for breakfast this morning? Lying is acceptable,"
-                          f"just make sure I don't catch you.\n")
-        input_two = int(input(f'Now tell me, is what you ate for breakfast True or False?\n'
-                          f'(Enter "1" for True or "0" for False)\n'))
-        random_num = random.randint(1,3)
-        print("Hmm, I'm gonna take a guess and say\n...........")
+        input_two = 0;
+        if HP == 2:
+            useless_input = input("Enter what you ate this morning: ")
+            input_two = int(input('\nNow tell me, is what you ate for breakfast True or False? \n'
+                                  'Enter "1" for True or "0" for False: '))
+        else:
+            useless_input = int(input("This is you final chance. Tell me, what did you eat for breakfast: "))
+            input_two = int(input('\nEnter "1" for True or "0" for False: '))
+        while input_two != 0 and input_two != 1:
+            input_two = int(input('\nInvalid input. Please enter "1" for True or "0" for False: '))
+        random_num = random.randint(1,2)
+        print("\nHmm, I'm gonna take a guess and say\n...........")
         time.sleep(2)
         if random_num == 1:
             print("TRUE")
@@ -105,14 +123,23 @@ def fight_final_boss():
             print("FALSE")
 
         if random_num == input_two:
-            HP -= 1
             if random == 1:
-                print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY!")
+                if HP == 2:
+                    print("HAHAHAHAHAHAHA I KNEW YOU WERE TELLING THE TRUTH FATTY!\n")
+                else:
+                    print("HAHAHAHAHAHAHAHA TRYING TO TRICK ME WITH THE TRUTH???\n")
+                time.sleep(2)
             else:
-                print("HAHAHAHAHAHAHA I KNEW YOU WERE LYING FATTY!")
+                if HP == 2:
+                    print("HAHAHAHAHAHAHA I KNEW YOU WERE LYING FATTY!\n")
+                else:
+                    print("HAHAHAHAHAHAHAHA TRYING TO TRICK ME WITH A FAT LIE???\n")
+                time.sleep(2)
+            HP -= 1
 
         else:
-            print("Wow fatty, you fooled me. I guess you can have Lipo. :(")
+            print("Wow fatty, you fooled me. I guess you can have Lipo. :(\n")
+            time.sleep(2)
             return True
     return False
 
@@ -209,11 +236,10 @@ def fight_villain(player, enemy):
         damage = 0
         fight_input = 0
         while not attribute_is_valid:
-            # for attributes in list_of_attributes:
-            #     for integer, attribute in attributes.items():
-            #         for ability, damage in attribute.items():
-            #             damage = str(attribute[ability])
-
+            for attributes in list_of_attributes:
+                for integer, attribute in attributes.items():
+                    for ability, damage in attribute.items():
+                        damage = str(attribute[ability])
             fight_input = input("Enter your desired attack (e.g. 1): ")
             attribute_is_valid = fight_attribute_is_valid(player, fight_input)
             if not attribute_is_valid:
