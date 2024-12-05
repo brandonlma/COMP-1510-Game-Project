@@ -22,7 +22,7 @@ def game():
         valid_name = user_information.valid_name(user_name)
         if not valid_name:
             user_name = input("\nName is too long. Please input a name less than 30 characters: ")
-    # initialize.start_story(user_name)
+    initialize.start_story(user_name)
     player = initialize.make_character(attributes)
     print("")
     output_display.display_user_stats(player, user_name)
@@ -61,7 +61,7 @@ def game():
             time.sleep(1)
     if user_information.is_alive(player):
         battle.final_boss_story(user_name)
-        final_game = battle.fight_final_boss(player)
+        final_game = battle.fight_final_boss()
         if final_game:
             time.sleep(1)
             print("Congratulations! You won LIPOSUCTION!!")
