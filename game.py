@@ -22,17 +22,20 @@ def game():
         valid_name = user_information.valid_name(user_name)
         if not valid_name:
             user_name = input("\nName is too long. Please input a name less than 30 characters: ")
-    initialize.start_story(user_name)
+    # initialize.start_story(user_name)
     player = initialize.make_character(attributes)
+    print("")
     output_display.display_user_stats(player, user_name)
     time.sleep(2)
     while user_information.is_alive(player) and player['Floor'] <= 3:
+        print("")
         output_display.describe_current_location(player)
         output_display.print_map_location(row, column, player)
         direction = movement.get_user_choice()
         if movement.validate_move(board, player, direction):
             movement.validate_move(board, player, direction)
             if direction == "E":
+                print("")
                 output_display.display_user_stats(player, user_name)
                 time.sleep(3)
             elif direction == "R":
