@@ -42,7 +42,7 @@ def final_boss_story(user_name):
 
 
     """
-    print("\nYou've successfully reached the 4th Floor!\n")
+    print("\nCongratulations on reaching the 4th Floor!\n")
     time.sleep(2)
     print("You must now have a consultation with Dr. Fat to get approved liposuction surgery.\n")
     time.sleep(3)
