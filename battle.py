@@ -204,7 +204,7 @@ def fight_villain(player, enemy):
     print(f"\nYou have encountered " + enemy_name + " who wants to feed you " + enemy_food + ".\n"
            "Avoid the temptation!")
     while enemy_health > 0 and user_information.is_alive(player):
-        fight_villain_story(player, enemy_name, enemy_health, enemy_food)
+        fight_villain_story(player, enemy_name, enemy_health)
         attribute_is_valid = False
         damage = 0
         fight_input = 0
