@@ -56,6 +56,8 @@ def game():
                 if movement.check_if_floor_attained(row, column, player):
                     movement.increase_floor(player)
                     movement.reset_coordinates(player)
+                    print("\nYou've successfully reached the next floor!\n")
+                    time.sleep(1)
         else:
             print("That move would make you go off the board. Try again.")
             time.sleep(1)
