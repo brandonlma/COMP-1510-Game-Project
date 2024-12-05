@@ -32,18 +32,18 @@ def attributes_upgrade(player, attributes):
     :precondition: attributes contains individual dictionaries for each ability
     :postcondition: adds correct dictionary to list
     :return: None
-    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
     >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
     >>> attributes_upgrade(player, attributes)
     "You've gained the ability to bite!"
-    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 3, 'Attributes': attributes}
     >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 3, 'Attributes': attributes}
     >>> attributes_upgrade(player, attributes)
     "You've gained the ability to chomp!"
-    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 6, 'Attributes': attributes}
     >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}, {4: {"devour": 6}}, {5: {"FEAST": 10}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 6, 'Attributes': attributes}
     >>> attributes_upgrade(player, attributes)
-    ""
+
     """
     if player['Level'] == 2:
         attributes.append({2: {"bite": 2}})
@@ -62,14 +62,26 @@ def attributes_upgrade(player, attributes):
 
 def is_alive(player):
     """
-    Determines if player is alive.
+    Determines if player is too fat or too skinny.
 
     :param player: a dictionary
     :precondition: player contains all required key:value pairs
     :precondition: accurately determines if player is alive
     :return: a Boolean
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
+    >>> is_alive(player)
+    True
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 100, 'Level': 2, 'Attributes': attributes}
+    >>> is_alive(player)
+    False
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 20, 'Level': 2, 'Attributes': attributes}
+    >>> is_alive(player)
+    False
     """
-    if 30 <= player['Waist'] <= 100:
+    if 30 <= player['Waist'] < 100:
         return True
     else:
         return False
@@ -82,30 +94,31 @@ def level_upgrade(player):
     :precondition: player contains all required key:value pairs
     :precondition: accurately increases player's level by 1 and lowers waist size by 10
     :return: None
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 1, 'Attributes': attributes}
+    >>> level_upgrade(player)
+    "You've successfully levelled up! -10 Waist size!"
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
+    >>> level_upgrade(player)
+    "You've successfully levelled up! -8 Waist size!"
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 6, 'Attributes': attributes}
+    >>> level_upgrade(player)
+    "You've successfully levelled up!"
     """
     if player['Level'] <= 5:
         waist_reduction_remover = 12 - (player['Level'] * 2)
         player['Waist'] -= waist_reduction_remover
-        print("\nYou've successfully levelled up! -" + str(waist_reduction_remover) + " Waist size!")
+        player['Level'] += 1
+        return "You've successfully levelled up! -" + str(waist_reduction_remover) + " Waist size!"
     else:
-        print("\n You've successfully levelled up!")
-    player['Level'] += 1
+        player['Level'] += 1
+        return "You've successfully levelled up!"
 
 
 def main():
-    attributes = [{1: {"lick": 1}}]
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
-    attributes_upgrade(player, attributes)
-    print(player)
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 3, 'Attributes': attributes}
-    attributes_upgrade(player, attributes)
-    print(player)
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 4, 'Attributes': attributes}
-    attributes_upgrade(player, attributes)
-    print(player)
-    player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 5, 'Attributes': attributes}
-    attributes_upgrade(player, attributes)
-    print(player)
+    pass
 
 
 if __name__ == '__main__':
