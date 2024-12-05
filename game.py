@@ -45,7 +45,8 @@ def game():
                     enemy = battle.random_enemy(player)
                     battle.fight_villain(player, enemy)
                     if player['Kills'] % 3 == 0 and player['Kills'] != 0:
-                        user_information.level_upgrade(player)
+                        print("")
+                        print(user_information.level_upgrade(player))
                         if player['Level'] <= 5:
                             print(user_information.attributes_upgrade(player, attributes))
                         time.sleep(2)
