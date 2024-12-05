@@ -153,7 +153,7 @@ def check_for_villain(player):
     :postcondition: randomly determines if there is an enemy based on a random number
     :return: a Boolean
     """
-    random_num = random.randint(1, 10)
+    random_num = random.randint(1, 100)
     if player['Floor'] == 1:
         if random_num <= 40:
             return True
@@ -236,10 +236,6 @@ def fight_villain(player, enemy):
         damage = 0
         fight_input = 0
         while not attribute_is_valid:
-            for attributes in list_of_attributes:
-                for integer, attribute in attributes.items():
-                    for ability, damage in attribute.items():
-                        damage = str(attribute[ability])
             fight_input = input("Enter your desired attack (e.g. 1): ")
             attribute_is_valid = fight_attribute_is_valid(player, fight_input)
             if not attribute_is_valid:
@@ -248,7 +244,7 @@ def fight_villain(player, enemy):
         attack_chosen = list_of_attributes[int(fight_input) - 1]
         for integer, attribute in attack_chosen.items():
             for key, value in attribute.items():
-                damage += value
+                damage = value
 
         if attack_result(player):
             player["Waist"] += damage
