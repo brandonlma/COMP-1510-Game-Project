@@ -58,10 +58,13 @@ def level_upgrade(player):
     :precondition: accurately increases player's level by 1 and lowers waist size by 10
     :return: None
     """
-    if player['Level'] < 5:
-        print("\nYou've successfully levelled up! -10 Waist size!")
-        player['Level'] += 1
-        player['Waist'] -= 10
+    if player['Level'] <= 5:
+        waist_reduction_remover = 12 - (player['Level'] * 2)
+        player['Waist'] -= waist_reduction_remover
+        print("\nYou've successfully levelled up! -" + str(waist_reduction_remover) + " Waist size!")
+    else:
+        print("\n You've successfully levelled up!")
+    player['Level'] += 1
 
 
 def main():
