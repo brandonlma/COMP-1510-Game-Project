@@ -11,6 +11,21 @@ def random_enemy(player):
     :precondition: player is a dictionary that contains a 'Floor' key
     :postcondition: accurately determines which enemy is to be faced
     :return: a list containing a name, health, and it's favourite food
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> random_enemy(player) # doctest: +SKIP
+    >>> value = 3 # doctest: +SKIP
+    ["Cookie Monster", 1, "cookies"]
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> random_enemy(player) # doctest: +SKIP
+    >>> value = 3 # doctest: +SKIP
+    ["Chester the Cheetah", 2, "cheetos"]
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> random_enemy(player) # doctest: +SKIP
+    >>> value = 3 # doctest: +SKIP
+    ["Pillsbury Doughboy", 3, "raw dough"]
     """
     value = random.randint(1,3)
     if player['Floor'] == 1:
@@ -40,7 +55,9 @@ def final_boss_story(user_name):
     """
     Output the final boss storyline.
 
-
+    :param user_name: a string
+    :precondition: user_name is the name of the user
+    :return: none
     """
     print("\nCongratulations on reaching the 4th Floor!\n")
     time.sleep(2)
@@ -96,7 +113,7 @@ def fight_final_boss():
     """
     Run the fighting action against the final boss.
 
-    :return:
+    return: a Boolean
     """
     HP = 2
     print(f"Tell me, what did you eat for breakfast this morning? Lying is acceptable.\n")
@@ -152,6 +169,21 @@ def check_for_villain(player):
     :precondition: player is a dictionary that contains a 'Floor' key with a value
     :postcondition: randomly determines if there is an enemy based on a random number
     :return: a Boolean
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> check_for_villain(player) # doctest: +SKIP
+    >>> value = 99 # doctest: +SKIP
+    True
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> check_for_villain(player) # doctest: +SKIP
+    >>> value = 0 # doctest: +SKIP
+    False
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> check_for_villain(player) # doctest: +SKIP
+    >>> value = 40 # doctest: +SKIP
+    True
     """
     random_num = random.randint(1, 100)
     if player['Floor'] == 1:
@@ -268,6 +300,22 @@ def attack_result(player):
     :precondition: player is a dictionary that contains all required keys and values
     :postcondition: determines randomly if attack was successful
     :return: a Boolean
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> attack_result(player) # doctest: +SKIP
+    >>> value = 99 # doctest: +SKIP
+    True
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> attack_result(player) # doctest: +SKIP
+    >>> value = 0 # doctest: +SKIP
+    False
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
+    >>> attack_result(player) # doctest: +SKIP
+    >>> value = 65 # doctest: +SKIP
+    True
+
     """
     value = random.randint(0, 100)
     if player['Floor'] == 1:
