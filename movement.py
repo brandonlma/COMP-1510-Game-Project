@@ -132,6 +132,7 @@ def move_character(player, direction):
     player['X-Coordinate'] = x
     player['Y-Coordinate'] = y
 
+    return player['Y-Coordinate'], player['X-Coordinate']
 
 def check_if_floor_attained(rows, columns, player):
     """
