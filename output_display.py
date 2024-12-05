@@ -27,9 +27,21 @@ def display_user_stats(player, user_name):
     print(name_string)
     print("+----------------------+---------------------+\n"
           "| Current Coordinates: |", player["X-Coordinate"], ",", player["Y-Coordinate"], "              |\n"
-          "| Floor:               |", player["Floor"], "                  |\n"
-          "| Level:               |", player["Level"], "                  |\n"
-          "| Kills:               |", player["Kills"], "                  |")
+          "| Floor:               |", player["Floor"], "                  |")
+    level = player["Level"]
+    level_to_string = str(level)
+    level_string = "| Level:               | " + level_to_string
+    while len(level_string) < 45:
+        level_string += " "
+    level_string += "|"
+    print(level_string)
+    kills = player["Kills"]
+    kills_to_string = str(kills)
+    kills_string = "| Kills:               | " + kills_to_string
+    while len(kills_string) < 45:
+        kills_string += " "
+    kills_string += "|"
+    print(kills_string)
     waist_size = player["Waist"]
     waist_size_to_string = str(waist_size)
     waist_string = "| Waist Size:          | " + waist_size_to_string
@@ -79,7 +91,7 @@ def describe_current_location(player):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print(f"Current Floor: {player["Floor"]}, Waist Size: {player["Waist"]}")
+    print("\nCurrent Floor:", player["Floor"], "Waist Size:", player["Waist"])
 
 def print_map_location(rows, columns, player):
     for y in range(rows):
