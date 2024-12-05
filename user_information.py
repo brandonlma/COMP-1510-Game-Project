@@ -1,6 +1,6 @@
 def valid_name(user_name):
     """
-    Determines if the name is valid.
+    Determine if the name is valid.
 
     :param user_name: a string
     :precondition: user_name is a string less than 30 characters
@@ -24,7 +24,7 @@ def valid_name(user_name):
 
 def attributes_upgrade(player, attributes):
     """
-    Upgrades player's attributes when reaching a new level.
+    Upgrade player's attributes when reaching a new level.
 
     :param player: a dictionary
     :param attributes: a list of dictionaries
@@ -62,7 +62,7 @@ def attributes_upgrade(player, attributes):
 
 def is_alive(player):
     """
-    Determines if player is too fat or too skinny.
+    Determine if player is too fat or too skinny.
 
     :param player: a dictionary
     :precondition: player contains all required key:value pairs
@@ -88,7 +88,7 @@ def is_alive(player):
 
 def level_upgrade(player):
     """
-    Upgrades player's level.
+    Upgrade player's level.
 
     :param player: a dictionary
     :precondition: player contains all required key:value pairs
