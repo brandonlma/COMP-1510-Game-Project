@@ -9,11 +9,16 @@ def get_user_choice():
     :return: a value of desired direction inputted from the user
 
     >>> get_user_choice() # doctest: +SKIP
-    1: South/Down
-    2: East/Right
-    3: North/Up
-    4: West/Left
-    Please enter your desired direction (1, 2, 3, or 4):
+    +------------------+
+    | Move Options:    |
+    +------------------+
+    | W: North/Up      |
+    | A: West/Left     |
+    | S: South/Down    |
+    | D: East/Right    |
+    | E: View profile  |
+    | R: View Rules    |
+    +------------------+
     """
 
     valid_response = True
@@ -55,18 +60,18 @@ def validate_move(board, player, direction):
     :return: a boolean
 
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
-    >>> direction = 1
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0, "Current HP": 5}
+    >>> direction = "S"
     >>> validate_move(board, player, direction)
     True
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
-    >>> direction = 2
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0, "Current HP": 5}
+    >>> direction = "D"
     >>> validate_move(board, player, direction)
     True
     >>> board = {(0,0), (0, 1), (1, 0), (1, 1)}
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
-    >>> direction = 3
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0, "Current HP": 5}
+    >>> direction = "W"
     >>> validate_move(board, player, direction)
     False
     """
@@ -94,7 +99,7 @@ def validate_move(board, player, direction):
 
 def move_character(player, direction):
     """
-    Shifts character's coordinates.
+    Shift character's coordinates.
 
     A function that moves the character in direction based on user's choice.
 
@@ -104,18 +109,18 @@ def move_character(player, direction):
     :postcondition: accurately move character
     :return: a dictionary
 
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
-    >>> direction = 1
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0}
+    >>> direction = "S"
     >>> move_character(player, direction)
-    {'Y-coordinate': 1, 'X-coordinate': 0, 'Current HP': 5}
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 0, "Current HP": 5}
-    >>> direction = 2
+    (1, 0)
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0}
+    >>> direction = "D"
     >>> move_character(player, direction)
-    {'Y-coordinate': 0, 'X-coordinate': 1, 'Current HP': 5}
-    >>> player = {"Y-coordinate": 4, "X-coordinate": 3, "Current HP": 5}
-    >>> direction = 2
+    (0, 1)
+    >>> player = {"Y-Coordinate": 4, "X-Coordinate": 3}
+    >>> direction = "D"
     >>> move_character(player, direction)
-    {'Y-coordinate': 4, 'X-coordinate': 4, 'Current HP': 5}
+    (4, 4)
     """
     x = int(player['X-Coordinate'])
     y = int(player['Y-Coordinate'])
@@ -149,17 +154,17 @@ def check_if_floor_attained(rows, columns, player):
 
     >>> rows = 5
     >>> columns = 5
-    >>> player = {"Y-coordinate": 4, "X-coordinate": 4, "Current HP": 5}
-    >>> check_if_floor_attained((rows, columns, player)
+    >>> player = {"Y-Coordinate": 4, "X-Coordinate": 4}
+    >>> check_if_floor_attained(rows, columns, player)
     True
     >>> rows = 5
     >>> columns = 5
-    >>> player = {"Y-coordinate": 1, "X-coordinate": 0, "Current HP": 5}
+    >>> player = {"Y-Coordinate": 1, "X-Coordinate": 0}
     >>> check_if_floor_attained(rows, columns, player)
     False
     >>> rows = 5
     >>> columns = 5
-    >>> player = {"Y-coordinate": 0, "X-coordinate": 4, "Current HP": 5}
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 4}
     >>> check_if_floor_attained(rows, columns, player)
     False
     """
@@ -173,13 +178,56 @@ def check_if_floor_attained(rows, columns, player):
 
 
 def reset_coordinates(player):
+    """
+    Reset coordinates of character to (0, 0).
+
+    :param player: a dictionary
+    :precondition: player is a dictionary with X and Y coordinates
+    :postcondition: coordinates are set to (0, 0)
+    :return: None
+    >>> player = {"Y-Coordinate": 5, "X-Coordinate": 5}
+    >>> reset_coordinates(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0}
+    >>> player = {"Y-Coordinate": 0, "X-Coordinate": 0}
+    >>> reset_coordinates(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0}
+    >>> player = {"Y-Coordinate": 100, "X-Coordinate": 21}
+    >>> reset_coordinates(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0}
+    """
     player['X-Coordinate'] = 0
     player['Y-Coordinate'] = 0
 
+    return player
+
+
 def increase_floor(player):
+    """
+    Increase player floor by one.
+
+    :param player: a dictionary
+    :precondition: player is a dictionary with 'Floor' key.
+    :postcondition: player's floor is increased by 1
+    :return: a dictionary
+    >>> player = {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 1}
+    >>> increase_floor(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 2}
+    >>> player = {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 2}
+    >>> increase_floor(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 3}
+    >>> player = {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 3}
+    >>> increase_floor(player)
+    {'Y-Coordinate': 0, 'X-Coordinate': 0, 'Floor': 4}
+    """
     player['Floor'] += 1
 
+    return player
+
+
 def main():
+    """
+    Drive the program.
+    """
     # attributes = {"lick": 1}
     # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
     # direction = "W"
