@@ -104,7 +104,11 @@ def objective():
           '| 4. Failed attacks makes you gain waist size!          |\n'
           '| 5. WIN AUTOMATICALLY IF YOU REACH WAIST SIZE 30!      |\n'
           '+-------------------------------------------------------+\n'
-          '| TIP: Level up to lower your waist size by 10!         |\n'
+          '| TIP: Level up to lower your waist size!               |\n'
+          '|      Level 2: -10 Waist Size                          |\n'
+          '|      Level 3:  -8 Waist Size                          |\n'
+          '|      Level 4:  -6 Waist Size                          |\n'
+          '|      Level 5:  -4 Waist Size                          |\n'
           '+-------------------------------------------------------+')
 
 
