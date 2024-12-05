@@ -1,7 +1,20 @@
 def valid_name(user_name):
     """
     Determines if the name is valid.
-    :return:
+
+    :param user_name: a string
+    :precondition: user_name is a string less than 30 characters
+    :postcondition: correctly determine if user_name is less than 30 characters
+    :return: a Boolean
+    >>> name = "Peter"
+    >>> valid_name(name)
+    True
+    >>> name = ""
+    >>> valid_name(name)
+    True
+    >>> name = "Sir Charles The Third Coming From the Wastelands of South Sudan"
+    >>> valid_name(name)
+    False
     """
     if len(user_name) < 30:
         return True
@@ -19,6 +32,18 @@ def attributes_upgrade(player, attributes):
     :precondition: attributes contains individual dictionaries for each ability
     :postcondition: adds correct dictionary to list
     :return: None
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 2, 'Attributes': attributes}
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> attributes_upgrade(player, attributes)
+    "You've gained the ability to bite!"
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 3, 'Attributes': attributes}
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> attributes_upgrade(player, attributes)
+    "You've gained the ability to chomp!"
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'floor': 1, 'Waist': 55, 'Level': 6, 'Attributes': attributes}
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}, {4: {"devour": 6}}, {5: {"FEAST": 10}}]
+    >>> attributes_upgrade(player, attributes)
+    ""
     """
     if player['Level'] == 2:
         attributes.append({2: {"bite": 2}})

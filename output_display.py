@@ -1,6 +1,6 @@
 def intro_image():
     """
-    Prints image to start game.
+    Prints chocolate bar image to start game.
     """
     print(r"  ___  ___  ___  ___  ___.---------------.     ", "\n"
           r".'\__\'\__\'\__\'\__\'\__,`   .  ____ ___ \    ", "\n"
@@ -14,8 +14,13 @@ def intro_image():
 
 def display_user_stats(player, user_name):
     """
+    Display user stats and attributes in a dynamic box.
 
-    :return:
+    :param player: a dictionary
+    :param user_name: a string
+    :precondition: player is a dictionary containing all required key value pairs
+    :postcondition: displays correct user stats and attributes
+    :return: None
     """
     number = 0;
     print("\n+--------------------------------------------+")
@@ -72,11 +77,18 @@ def display_user_stats(player, user_name):
     print("+----------------------+---------------------+")
 
 
-
-
-
-
 def describe_current_location(player):
+    """
+    Prints player's current floor and waist size.
+
+    :param player: a dictionary
+    :precondition: player is a dictionary containing all required key value pairs
+    :return: None
+    """
+    print("\nCurrent Floor:", player["Floor"], "Waist Size:", player["Waist"])
+
+
+def print_map_location(rows, columns, player):
     """
     Prints the board map.
 
@@ -91,9 +103,6 @@ def describe_current_location(player):
     :postcondition: accurately displays board map and location of character and special items
     :return: None
     """
-    print("\nCurrent Floor:", player["Floor"], "Waist Size:", player["Waist"])
-
-def print_map_location(rows, columns, player):
     for y in range(rows):
         temporary_row = ""
         for num in range(columns):
@@ -119,6 +128,9 @@ def print_map_location(rows, columns, player):
 
 
 def main():
+    """
+    Drive the program.
+    """
     # user_name = "Bob"
     # attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
     # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}

@@ -39,6 +39,8 @@ def random_enemy(player):
 def final_boss_story(user_name):
     """
     Outputs the final boss storyline.
+
+
     """
     print("You've successfully reached Floor 4!\n")
     time.sleep(2)
@@ -142,14 +144,13 @@ def check_for_villain(player):
             return False
 
 
-def fight_villain_story(player, enemy_name, enemy_health, enemy_food):
+def fight_villain_story(player, enemy_name, enemy_health):
     """
     Prints attack block to display information.
 
     :param player: a dictionary
     :param enemy_name: a string
     :param enemy_health: an integer
-    :param enemy_food: a string
     :return: None
     """
 
@@ -182,6 +183,7 @@ def fight_villain_story(player, enemy_name, enemy_health, enemy_food):
                 attribute_string += "|"
                 print(attribute_string)
     print("+--------------------------------+")
+
 
 def fight_villain(player, enemy):
     """
@@ -299,6 +301,9 @@ def fight_attribute_is_valid(player, fight_input):
 
 
 def main():
+    """
+    Drive the program.
+    """
     attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}]
     enemy = ["Ronald McDonald", 8, "chicken nuggets"]
     player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'Floor': 1, 'Attributes': attributes}
