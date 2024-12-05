@@ -376,9 +376,11 @@ def main():
     """
     attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}, {3: {"chomp": 4}}]
     enemy = ["Ronald McDonald", 8, "chicken nuggets"]
+    enemy_name = enemy[0]
+    enemy_health = enemy[1]
     player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'Floor': 1, 'Attributes': attributes}
     user_name = "Bob"
-    fight_final_boss()
+    fight_villain_story(player, enemy_name, enemy_health)
 
 if __name__ == '__main__':
     main()
