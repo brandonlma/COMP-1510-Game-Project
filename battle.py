@@ -33,7 +33,7 @@ def random_enemy(player):
         elif value == 2:
             return ["Mid 2000s Jared Fogle", 6, "Subway Sandwiches"]
         else:
-            return ["Yourself", 9, "self-doubt"]
+            return ["Anxiety", 9, "self-doubt"]
 
 
 def final_boss_story(user_name):
@@ -124,18 +124,22 @@ def check_for_villain(player):
     :postcondition: randomly determines if there is an enemy based on a random number
     :return: a Boolean
     """
-
+    random_num = random.randint(1, 10)
     if player['Floor'] == 1:
-        random_num = random.randint(1,5)
+        if random_num <= 40:
+            return True
+        else:
+            return False
     elif player['Floor'] == 2:
-        random_num = random.randint(1,4)
+        if random_num <= 50:
+            return True
+        else:
+            return False
     else:
-        random_num = random.randint(1,3)
-
-    if random_num <= 2:
-        return True
-    else:
-        return False
+        if random_num <= 60:
+            return True
+        else:
+            return False
 
 
 def fight_villain_story(player, enemy_name, enemy_health, enemy_food):
@@ -243,17 +247,17 @@ def attack_result(player):
     """
     value = random.randint(0, 100)
     if player['Floor'] == 1:
-        if value >= 75:
+        if value >= 65:
             return True
         else:
             return False
     elif player['Floor'] == 2:
-        if value >= 66:
+        if value >= 60:
             return True
         else:
             return False
     else:
-        if value >= 50:
+        if value >= 55:
             return True
         else:
             return False
