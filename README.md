@@ -4,10 +4,10 @@
 Brandon Lam and Peter Beretanos
 
 ## Your student number:
-A01365141
+A01365141 and A01427510
 
 ## Your GitHub name:
-brandonlma and whatinthepita
+brandonlma and whatinthepeta
 
 ## Any important comments you'd like to make about your work:
 None
