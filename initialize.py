@@ -2,25 +2,47 @@ import time
 
 def make_character(attributes):
     """
-    Initializes character's position, stats, and attributes.
+    Initialize character's position, stats, and attributes.
 
     :param attributes: a list
     :precondition: attributes contains a list of attribute dictionaries
     :postcondition: correctly initializes player's information in a dictionary
     :return: a dictionary
+    >>> attributes = [{1: {'lick': 1}}]
+    >>> make_character(attributes)
+    {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': [{1: {'lick': 1}}]}
+    >>> attributes = [{1: {'lick': 1}}, {2: {'bite': 2}}]
+    >>> make_character(attributes)
+    {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': [{1: {'lick': 1}}, {2: {'bite': 2}}]}
+    >>> attributes = [{1: {'lick': 1}}, {2: {'bite': 2}}, {3: {'chomp': 4}}]
+    >>> make_character(attributes)
+    {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': [{1: {'lick': 1}}, {2: {'bite': 2}}, {3: {'chomp': 4}}]}
+
     """
     return {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Kills': 0, 'Floor': 1, 'Waist': 55, 'Attributes': attributes}
 
 
 def make_board(rows, columns):
     """
-    Builds a board with desired length and width.
+    Build a board with desired length and width.
 
     :param rows: an integer
     :param columns: in integer
     :precondition: rows and columns must be positive integers greater than 0
     :postcondition: creates a dictionary of all coordinates keys attached to description values
     :return: a dictionary
+    >>> rows = 1
+    >>> columns = 1
+    >>> make_board(rows, columns)
+    {(0, 0): 'Empty room'}
+    >>> rows = 2
+    >>> columns = 2
+    >>> make_board(rows, columns)
+    {(0, 0): 'Empty room', (0, 1): 'Empty room', (1, 0): 'Empty room', (1, 1): 'Empty room'}
+    >>> rows = 0
+    >>> columns = 0
+    >>> make_board(rows, columns)
+    {}
     """
     board = {}
     for row in range(rows):
@@ -30,7 +52,7 @@ def make_board(rows, columns):
 
 def start_story(user_name):
     """
-    Prints out initial story of the game.
+    Print out initial story of the game.
 
     :param user_name: a string
     :precondition: user_name is a string of the user's desired name
@@ -87,7 +109,7 @@ def start_story(user_name):
 
 def objective():
     """
-    Returns the objectives of game as a string.
+    Return the objectives of game as a string.
 
     :return: a string
     """
@@ -113,8 +135,9 @@ def objective():
 
 
 def main():
-    # attributes = {"lick": 1}
-    # player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Level': 1, 'Waist': 55, 'HP': 5, 'Attributes': attributes}
+    """
+    Drive the program.
+    """
     pass
 
 if __name__ == '__main__':
