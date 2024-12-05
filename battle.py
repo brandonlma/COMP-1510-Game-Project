@@ -5,7 +5,7 @@ import user_information
 
 def random_enemy(player):
     """
-    Determines the enemy to be faced.
+    Determine if the enemy to be faced.
 
     :param player: a dictionary
     :precondition: player is a dictionary that contains a 'Floor' key
@@ -38,7 +38,7 @@ def random_enemy(player):
 
 def final_boss_story(user_name):
     """
-    Outputs the final boss storyline.
+    Output the final boss storyline.
 
 
     """
@@ -86,7 +86,7 @@ def final_boss_story(user_name):
 
 def fight_final_boss():
     """
-    Runs the fighting action against the final boss.
+    Run the fighting action against the final boss.
 
     :return:
     """
@@ -119,7 +119,7 @@ def fight_final_boss():
 
 def check_for_villain(player):
     """
-    Checks whether there is a villain.
+    Check whether there is a villain.
 
     :param player: a dictionary
     :precondition: player is a dictionary that contains a 'Floor' key with a value
@@ -146,7 +146,7 @@ def check_for_villain(player):
 
 def fight_villain_story(player, enemy_name, enemy_health):
     """
-    Prints attack block to display information.
+    Print attack block to display information.
 
     :param player: a dictionary
     :param enemy_name: a string
@@ -187,7 +187,7 @@ def fight_villain_story(player, enemy_name, enemy_health):
 
 def fight_villain(player, enemy):
     """
-    Runs the fight action against the villain.
+    Run the fight action against the villain.
 
     :param player: a dictionary
     :param enemy: a list
@@ -240,7 +240,7 @@ def fight_villain(player, enemy):
 
 def attack_result(player):
     """
-    Determines if player has successfully attacked the enemy.
+    Determine if player has successfully attacked the enemy.
 
     :param player: a dictionary
     :precondition: player is a dictionary that contains all required keys and values
@@ -267,7 +267,7 @@ def attack_result(player):
 
 def fight_attribute_is_valid(player, fight_input):
     """
-    Determines if the inputted attack value is valid.
+    Determine if the inputted attack value is valid.
 
     :param player: a dictionary
     :param fight_input: a string
