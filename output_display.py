@@ -1,6 +1,6 @@
 def intro_image():
     """
-    Prints chocolate bar image to start game.
+    Print chocolate bar image to start game.
     """
     print(r"  ___  ___  ___  ___  ___.---------------.     ", "\n"
           r".'\__\'\__\'\__\'\__\'\__,`   .  ____ ___ \    ", "\n"
@@ -21,9 +21,40 @@ def display_user_stats(player, user_name):
     :precondition: player is a dictionary containing all required key value pairs
     :postcondition: displays correct user stats and attributes
     :return: None
+    >>> attributes = [{1: {"lick": 1}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> user_name = "Brandon"
+    >>> display_user_stats(player, user_name)
+    +--------------------------------------------+
+    | Brandon's INFORMATION:                     |
+    +----------------------+---------------------+
+    | Current Coordinates: | 0 , 0               |
+    | Floor:               | 1                   |
+    | Level:               | 1                   |
+    | Kills:               | 0                   |
+    | Waist Size:          | 55                  |
+    +----------------------+---------------------+
+    | Attack Abilities:    | lick       = 1 DMG  |
+    +----------------------+---------------------+
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 2, 'Attributes': attributes}
+    >>> user_name = "Brandon"
+    >>> display_user_stats(player, user_name)
+    +--------------------------------------------+
+    | Brandon's INFORMATION:                     |
+    +----------------------+---------------------+
+    | Current Coordinates: | 0 , 0               |
+    | Floor:               | 1                   |
+    | Level:               | 2                   |
+    | Kills:               | 0                   |
+    | Waist Size:          | 55                  |
+    +----------------------+---------------------+
+    | Attack Abilities:    | lick       = 1 DMG  |
+    |                      | bite       = 2 DMG  |
+    +----------------------+---------------------+
     """
     number = 0;
-    print("\n+--------------------------------------------+")
+    print("+--------------------------------------------+")
 
     name_string = "| " + user_name + "'s INFORMATION:"
     while len(name_string) < 45:
@@ -79,18 +110,30 @@ def display_user_stats(player, user_name):
 
 def describe_current_location(player):
     """
-    Prints player's current floor and waist size.
+    Print player's current floor and waist size.
 
     :param player: a dictionary
     :precondition: player is a dictionary containing all required key value pairs
     :return: None
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> describe_current_location(player)
+    Current Floor: 1 Waist Size: 55
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 3, 'Waist': 80, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> describe_current_location(player)
+    Current Floor: 3 Waist Size: 80
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 5, 'Waist': 99, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> describe_current_location(player)
+    Current Floor: 5 Waist Size: 99
     """
-    print("\nCurrent Floor:", player["Floor"], "Waist Size:", player["Waist"])
+    print("Current Floor:", player["Floor"], "Waist Size:", player["Waist"])
 
 
 def print_map_location(rows, columns, player):
     """
-    Prints the board map.
+    Print the board map.
 
     Displays the board map including special characters to represent locations of character and
     special items.
@@ -102,6 +145,44 @@ def print_map_location(rows, columns, player):
     :precondition: player contains coordinates of current location
     :postcondition: accurately displays board map and location of character and special items
     :return: None
+    >>> rows = 6
+    >>> columns = 6
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 0, 'Y-Coordinate': 0, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> print_map_location(rows, columns, player)
+    ==============================
+    | O ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   || ! |
+    ==============================
+    'O': Your location '!': Stairs to reach next floor
+    >>> rows = 6
+    >>> columns = 6
+    >>> attributes = [{1: {"lick": 1}}, {2: {"bite": 2}}]
+    >>> player = {'X-Coordinate': 5, 'Y-Coordinate': 5, 'Floor': 1, 'Waist': 55, 'Kills': 0, 'Level': 1, 'Attributes': attributes}
+    >>> print_map_location(rows, columns, player)
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   ||   |
+    ==============================
+    |   ||   ||   ||   ||   || O |
+    ==============================
+    'O': Your location '!': Stairs to reach next floor
     """
     for y in range(rows):
         temporary_row = ""
@@ -111,10 +192,10 @@ def print_map_location(rows, columns, player):
         temp = ""
         for x in range(columns):
             temp += "| "
-            if x == columns - 1 and y == rows - 1:
-                temp += "!"
-            elif player["X-Coordinate"] == x and player["Y-Coordinate"] == y:
+            if player["X-Coordinate"] == x and player["Y-Coordinate"] == y:
                 temp += "O"
+            elif x == columns - 1 and y == rows - 1:
+                temp += "!"
             else:
                 temp += " "
             temp += " |"
